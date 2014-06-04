@@ -273,7 +273,7 @@ void SurfacePointTask::Run() {
 
 void FindPoissonPointDistribution(const Point &pCamera, float time,
         float minDist, const Scene *scene, vector<SurfacePoint> *points) {
-    SurfacePointsRenderer sp(minDist, pCamera, time, "");
+    SurfacePointsRenderer sp(minDist, pCamera, time, "teapot_points1.out");
     sp.Render(scene);
     points->swap(sp.points);
 }

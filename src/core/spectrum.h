@@ -395,6 +395,14 @@ public:
     RGBSpectrum(const RGBSpectrum &s, SpectrumType type = SPECTRUM_REFLECTANCE) {
         *this = s;
     }
+    void Print() const {
+        printf("[ ");
+        for (int i = 0; i < 3; ++i) {
+            printf("%f", c[i]);
+            printf(", ");
+        }
+        printf("]\n");
+    }
     static RGBSpectrum FromRGB(const float rgb[3],
             SpectrumType type = SPECTRUM_REFLECTANCE) {
         RGBSpectrum s;

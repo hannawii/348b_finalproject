@@ -88,6 +88,7 @@
 #include "materials/shinymetal.h"
 #include "materials/translucent.h"
 #include "materials/uber.h"
+#include "materials/skin.h"
 #include "renderers/aggregatetest.h"
 #include "renderers/createprobes.h"
 #include "renderers/metropolis.h"
@@ -403,6 +404,8 @@ Reference<Material> MakeMaterial(const string &name,
         material = CreateMeasuredMaterial(mtl2world, mp);
     else if (name == "shinymetal")
         material = CreateShinyMetalMaterial(mtl2world, mp);
+    else if (name == "skin") 
+        material = CreateSkinMaterial(mtl2world, mp);
     else
         Warning("Material \"%s\" unknown.", name.c_str());
     mp.ReportUnused();

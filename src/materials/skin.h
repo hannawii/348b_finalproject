@@ -9,7 +9,7 @@
 #include "pbrt.h"
 #include "material.h"
 
-// UberMaterial Declarations
+// SkinMaterial Declarations
 class SkinMaterial : public Material {
 public:
     SkinMaterial(Reference<Texture<Spectrum> > kd,
@@ -19,7 +19,11 @@ public:
         Reference<Texture<float> > rough,
         Reference<Texture<Spectrum> > op,
         Reference<Texture<float> > e,
-        Reference<Texture<float> > bump) {
+        Reference<Texture<float> > bump,
+        Reference<Texture<Spectrum> > sa,
+        Reference<Texture<Spectrum> > sps,
+        float sc) {
+
         Kd = kd;
         Ks = ks;
         Kr = kr;
@@ -28,14 +32,18 @@ public:
         opacity = op;
         eta = e;
         bumpMap = bump;
+        scale = sc;
+        sigma_a = sa;
+        sigma_prime_s = sps;
     }
     BSDF *GetBSDF(const DifferentialGeometry &dgGeom, const DifferentialGeometry &dgShading, MemoryArena &arena) const;
 
     BSSRDF *GetBSSRDF(const DifferentialGeometry &dgGeom, const DifferentialGeometry &dgShading, MemoryArena &arena) const;
 private:
     // SkinMaterial Private Data
-    Reference<Texture<Spectrum> > Kd, Ks, Kr, Kt, opacity;
+    Reference<Texture<Spectrum> > Kd, Ks, Kr, Kt, opacity, sigma_a, sigma_prime_s;
     Reference<Texture<float> > roughness, eta, bumpMap;
+    float scale;
 };
 
 
