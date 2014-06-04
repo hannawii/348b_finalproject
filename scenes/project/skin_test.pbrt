@@ -1,0 +1,55 @@
+# Converted from "../scenes/project/skin_test.obj" by obj2pbrt
+# Scene bounds: (-2.139400, -1.861014, -2.656251) - (1.973714, 2.208544, 1.630769)
+
+Film "image" "string filename" ["skin_test.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
+
+#SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.01]
+   #"float maxerror" [.05]
+
+Sampler "lowdiscrepancy" "integer pixelsamples" [8]
+Accelerator "kdtree"
+
+WorldBegin
+AttributeBegin
+   AreaLightSource "area" "color L" [10 10 10] "integer nsamples" [8]
+   Translate .05 .5 .2
+   Rotate 45 0 1 0
+Shape "trianglemesh" "integer indices" [ 0 1 2 2 3 0 ]
+    "point P" [-.6 0 -.6   .6 0 -.6   .6 0 .6   -.6 0 .6 ]
+AttributeEnd
+
+
+# Name "Plane_Plane.001"
+AttributeBegin
+Texture "obj-kd-img" "color" "imagemap" "string filename" ["skin2.jpg"]
+Texture "obj-kd" "color" "scale" "texture tex1" "obj-kd-img" "color tex2" [0.640000 0.640000 0.640000]
+Texture "obj-ks" "color" "constant" "color value" [0.500000 0.500000 0.500000]
+Material "uber" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.010408] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] 
+
+Shape "trianglemesh"
+  "point P" [
+    -1.005576968 -1.802294016 1.630769014 
+    1.973713994 -1.861014009 -1.503260016 
+    0.8398920298 2.149823904 -2.656250954 
+    -2.139400005 2.208544016 0.4777770042 
+    ]
+  "normal N" [
+    0.6757540107 0.3736830056 0.6353880167 
+    0.6757540107 0.3736830056 0.6353880167 
+    0.6757540107 0.3736830056 0.6353880167 
+    0.6757540107 0.3736830056 0.6353880167 
+    ]
+    "float st" [
+    0 0 
+    1 0 
+    1 1 
+    0 1 
+    ]
+  "integer indices" [
+    0 1 2 
+    0 2 3 
+    ]
+AttributeEnd
+WorldEnd
+
+

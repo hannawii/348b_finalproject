@@ -897,14 +897,14 @@ LoadObj(
 using namespace tinyobj;
 
 int main(int argc, char *argv[]) {
-  if (argc != 3 || strcmp(argv[1], "--help") == 0 ||
+  if (argc < 3 || strcmp(argv[1], "--help") == 0 ||
       strcmp(argv[1], "-h") == 0) {
     fprintf(stderr, "usage: obj2pbrt [OBJ filename] [pbrt output filename]\n");
     return 1;
   }
 
   std::vector<shape_t> shapes;
-  const char *mtl_basepath = ""; // ?
+  const char *mtl_basepath = argv[3]; // ?
   std::string errs = LoadObj(shapes, argv[1], mtl_basepath);
 
   if (errs.size() > 0) {
