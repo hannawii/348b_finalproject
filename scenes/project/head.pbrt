@@ -16,17 +16,20 @@ Accelerator "kdtree"
 #
 #LookAt 20 20 20  0 0 0   0 1 0
 
-LookAt 3 -.05 8  0 -.02 -0.08  0 2 0
+#LookAt 3 -.05 8  0 -.02 -0.08  0 2 0 #3000 -50 8000  0 -20 -80  0 2000 0 
+LookAt 3000 -50 8000  0 -20 -80  0 2000 0
 Camera "perspective" "float fov" [2]
 
 # Name "Group19"
 WorldBegin
 AttributeBegin
    AreaLightSource "area" "color L" [10 10 10] "integer nsamples" [8]
-   Translate .05 .5 .2
+   #Translate .05 .5 .2
+   Translate 50 500 200
    Rotate 45 0 1 0
 Shape "trianglemesh" "integer indices" [ 0 1 2 2 3 0 ]
-    "point P" [-.6 0 -.6   .6 0 -.6   .6 0 .6   -.6 0 .6 ]
+    #"point P" [-.6 0 -.6   .6 0 -.6   .6 0 .6   -.6 0 .6 ]
+    "point P" [-600 0 -600   600 0 -600   600 0 600   -600 0 600]
 AttributeEnd
 
 AttributeBegin
@@ -39,6 +42,7 @@ Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.0
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
 
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08073267341 0.04049707949 -0.06326138228 
@@ -138,6 +142,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07637736201 0.0005257399753 -0.05566301942 
@@ -277,6 +282,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03897720948 0.00823353976 -0.003977859858 
@@ -2146,6 +2152,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0434457995 -0.007568079978 0.00902189035 
@@ -2245,6 +2252,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0205742307 -0.00527309021 0.01092541032 
@@ -2344,6 +2352,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0354433991 -0.008863699622 0.01521093957 
@@ -3153,6 +3162,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03519440815 -0.009099650197 0.01411719993 
@@ -3372,6 +3382,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03227493167 -0.004054950085 0.01983124018 
@@ -3471,6 +3482,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04582127184 -0.002673669951 0.003431509947 
@@ -3650,6 +3662,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0434457995 -0.007568079978 0.00902189035 
@@ -3749,6 +3762,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04090341181 -0.008648740128 0.01151427999 
@@ -4048,6 +4062,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04690070078 -0.007399269845 0.005860830192 
@@ -4187,6 +4202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04601877183 -0.007703059819 0.008294779807 
@@ -4446,6 +4462,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0185646899 -0.004653130192 0.01283819973 
@@ -5185,6 +5202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01767477952 -0.004932720214 0.0138792498 
@@ -5364,6 +5382,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02061546966 -0.007951789536 0.01463516988 
@@ -5503,6 +5522,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04698035866 -0.003072170075 -0.0005823600222 
@@ -7292,6 +7312,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01919838972 -0.001789630041 0.01544385962 
@@ -7391,6 +7412,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01631038077 -0.00414648978 0.01395627018 
@@ -7570,6 +7592,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02864032984 -0.01482153032 0.01436361019 
@@ -8269,6 +8292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03191732988 0.001655210042 0.02020503953 
@@ -8508,6 +8532,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02328133024 0.001018399955 0.01770487055 
@@ -8747,6 +8772,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.002049539937 -0.1079768091 -0.007294760086 
@@ -10976,6 +11002,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09227511287 -0.03027931973 -0.08600729704 
@@ -11035,6 +11062,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09214452654 -0.01071123965 -0.09210460633 
@@ -11094,6 +11122,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09286186099 -0.01639702916 -0.09209883958 
@@ -11233,6 +11262,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09317465127 -0.01197484974 -0.09054306149 
@@ -11692,6 +11722,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08779814094 0.0005949300248 -0.07953432947 
@@ -11751,6 +11782,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08779814094 0.0005949300248 -0.07953432947 
@@ -12090,6 +12122,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08831319213 -0.002413280075 -0.08420307934 
@@ -12299,6 +12332,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09278734773 -0.009186100215 -0.09472561628 
@@ -12788,6 +12822,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07959847897 -0.00608150987 -0.06841122359 
@@ -12887,6 +12922,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07809390128 -0.01019410975 -0.06649240106 
@@ -13086,6 +13122,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0755026564 -0.02710645087 -0.06598766148 
@@ -13135,6 +13172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07704812288 -0.02466792054 -0.07250104845 
@@ -14674,6 +14712,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09039083123 -0.03802714124 -0.08244623244 
@@ -14733,6 +14772,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08834286779 -0.0446311906 -0.07960347086 
@@ -14792,6 +14832,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09093943238 -0.03776174039 -0.08465316147 
@@ -14851,6 +14892,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0861081779 -0.04376329109 -0.07659935951 
@@ -14940,6 +14982,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09160897881 -0.03701066971 -0.08601561189 
@@ -14999,6 +15042,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09352120757 -0.0186578501 -0.09079431742 
@@ -15058,6 +15102,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09352120757 -0.0186578501 -0.09079431742 
@@ -15157,6 +15202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09160897881 -0.03701066971 -0.08601561189 
@@ -15216,6 +15262,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.09296253324 -0.02679817006 -0.08944235742 
@@ -15435,6 +15482,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.083042413 -0.03576942906 -0.07904934883 
@@ -15894,6 +15942,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07732713968 -0.01194091979 -0.06759998202 
@@ -16073,6 +16122,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07843528688 -0.01364937983 -0.06960944831 
@@ -16172,6 +16222,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08148828149 -0.01352427993 -0.07167942822 
@@ -17071,6 +17122,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08222682029 -0.0205887109 -0.07905393839 
@@ -17290,6 +17342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07448185235 -0.02587901056 -0.06699886173 
@@ -17489,6 +17542,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07276034355 -0.05379452929 -0.05767922848 
@@ -17868,6 +17922,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06721902639 -0.0344989188 -0.0714693889 
@@ -18447,6 +18502,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07388365269 -0.04178749025 -0.06799957156 
@@ -18586,6 +18642,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07460906357 -0.02871163003 -0.06984691322 
@@ -19085,6 +19142,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07104215026 -0.05043011904 -0.05762622133 
@@ -19654,6 +19712,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07348051667 -0.03059248999 -0.06617084146 
@@ -20033,6 +20092,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07656566054 -0.03259842843 -0.06485156715 
@@ -21212,6 +21272,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06815809757 -0.02372775041 -0.02351051942 
@@ -21271,6 +21332,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04406968132 -0.07588070631 0.01682410948 
@@ -21530,6 +21592,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06520277262 -0.04072194919 -0.01550939959 
@@ -21629,6 +21692,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.05884588882 -0.0508395806 -0.002585570095 
@@ -21768,6 +21832,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02491981909 -0.05648152158 0.02724431083 
@@ -21827,6 +21892,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02409211919 -0.07485456765 0.01836585999 
@@ -21926,6 +21992,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0240694508 -0.04462385923 0.02360006049 
@@ -22105,6 +22172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01157873962 -0.04228229076 0.03543319181 
@@ -22164,6 +22232,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01474437024 -0.04627668113 0.03227638826 
@@ -22263,6 +22332,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01176763978 -0.04520254955 0.03593156859 
@@ -22322,6 +22392,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.005395940039 -0.01029704046 0.03321120143 
@@ -22421,6 +22492,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.007947829552 -0.0407512188 0.04548269138 
@@ -22600,6 +22672,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01654431038 -0.04033702984 0.03592957929 
@@ -22699,6 +22772,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.009649559855 -0.04084264114 0.04061033949 
@@ -22758,6 +22832,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.003214390017 -0.05505140126 0.03842699155 
@@ -22897,6 +22972,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01198461 -0.07082588226 0.02631234936 
@@ -23076,6 +23152,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01749131083 -0.05358938873 0.02977490053 
@@ -23975,6 +24052,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02452052943 -0.07120799273 0.02787503041 
@@ -24074,6 +24152,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02407657914 -0.06370293349 0.02966286056 
@@ -24173,6 +24252,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02452052943 -0.07120799273 0.02787503041 
@@ -24232,6 +24312,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02107262984 -0.07113458216 0.02890405059 
@@ -24291,6 +24372,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02204458974 -0.07250782102 0.02244110964 
@@ -24350,6 +24432,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02214905061 -0.07254157215 0.02200267091 
@@ -24449,6 +24532,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02107262984 -0.07113458216 0.02890405059 
@@ -24868,6 +24952,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0181752108 -0.06880910695 0.03216831014 
@@ -24967,6 +25052,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0101074297 -0.06856568903 0.03508269042 
@@ -25106,6 +25192,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03880421072 -0.07492470741 0.02112939954 
@@ -25885,6 +25972,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01909714006 -0.07210324705 0.02752918005 
@@ -26144,6 +26232,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02297382988 -0.07683116198 0.02639920078 
@@ -26483,6 +26572,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0009383599972 -0.04477560893 0.04559978098 
@@ -26622,6 +26712,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.005007029977 -0.04106000066 0.04124753177 
@@ -26721,6 +26812,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.004887930118 -0.04291269183 0.04062271863 
@@ -26820,6 +26912,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.006378159858 -0.04034421965 0.04337551817 
@@ -26879,6 +26972,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.009591040201 -0.03908301145 0.04650985822 
@@ -27338,6 +27432,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.008093290031 -0.07118777186 0.02961082011 
@@ -27677,6 +27772,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0200739596 -0.1028844491 0.02993988991 
@@ -27936,6 +28032,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.003588350024 -0.05162455887 0.03821200132 
@@ -28075,6 +28172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.05472068116 -0.1221336573 -0.1208820567 
@@ -28534,6 +28632,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06701251119 -0.05960353091 -0.06469640881 
@@ -28633,6 +28732,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06315367669 -0.1196743771 -0.08177146316 
@@ -28972,6 +29072,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08540172875 -0.03575788066 -0.08974307775 
@@ -30831,6 +30932,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06454166025 -0.05579645932 -0.1168582365 
@@ -30930,6 +31032,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08013530821 -0.01105371956 -0.08176956326 
@@ -31069,6 +31172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07846221328 -0.02240185067 -0.1044541225 
@@ -31168,6 +31272,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08041124791 -0.008632659912 -0.0855473578 
@@ -31937,6 +32042,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07753738016 0.04956626892 -0.135091573 
@@ -31996,6 +32102,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07621900737 -0.02329716086 -0.05960433185 
@@ -32415,6 +32522,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06173767895 0.08196076751 -0.04172923043 
@@ -32624,6 +32732,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.074683927 -0.01896885969 -0.05205339938 
@@ -32683,6 +32792,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0724561289 -0.03991993144 -0.0525660105 
@@ -32782,6 +32892,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07133758813 -0.04146797955 -0.04182694852 
@@ -32921,6 +33032,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07398188859 -0.009202679619 -0.04035038128 
@@ -33060,6 +33172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.06808459759 0.01098577026 -0.1562468559 
@@ -34039,6 +34152,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.2309344709 -0.2555895746 -0.1112654433 
@@ -34088,6 +34202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.1914099753 -0.2121659517 -0.1246201023 
@@ -34267,6 +34382,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.2179794759 -0.2709747553 -0.1532127857 
@@ -34446,6 +34562,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.1797940582 -0.269498229 -0.05960622057 
@@ -34665,6 +34782,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.2069955319 -0.2879973352 -0.103358008 
@@ -34804,6 +34922,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.190861091 -0.2490647882 -0.07454758137 
@@ -35183,6 +35302,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.0582963489 -0.007940719835 -0.00509834988 
@@ -36402,6 +36522,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03505789116 -0.06362541765 0.02321032062 
@@ -36501,6 +36622,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03411278874 -0.04724581912 0.02208312042 
@@ -37240,6 +37362,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07301560789 -0.2165795565 -0.2032373846 
@@ -37499,6 +37622,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.2309344709 -0.2555895746 -0.1112654433 
@@ -37598,6 +37722,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.1846994013 -0.2200440764 -0.1619113982 
@@ -38497,6 +38622,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.001189299976 -0.296646148 -0.1691768765 
@@ -38556,6 +38682,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.05176058039 -0.2676281929 -0.2178863287 
@@ -38685,6 +38812,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03292515874 -0.2679488659 -0.2164507955 
@@ -38784,6 +38912,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03292515874 -0.2679488659 -0.2164507955 
@@ -38843,6 +38972,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08030696213 -0.2684596479 -0.2189597636 
@@ -38982,6 +39112,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.1453844011 -0.2307384163 -0.1989823431 
@@ -39041,6 +39172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.1247185022 -0.3034431934 -0.1782956868 
@@ -39100,6 +39232,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07301560789 -0.2165795565 -0.2032373846 
@@ -39159,6 +39292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.1180782318 -0.2714183927 -0.2184485644 
@@ -39648,6 +39782,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.01564778015 -0.2150675356 -0.2068537325 
@@ -41337,6 +41472,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.002453640103 -0.2944285274 -0.07984571904 
@@ -41436,6 +41572,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.05712231994 -0.283162415 -0.03006679937 
@@ -41535,6 +41672,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.006599360146 -0.02165954001 0.03911431134 
@@ -42994,6 +43132,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.04886380956 0.07738126069 -0.01438986044 
@@ -43213,6 +43352,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.03518873826 0.06832604855 0.009655229747 
@@ -43472,6 +43612,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02017569914 -0.1291472465 -0.004250190221 
@@ -43761,6 +43902,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.02916187979 -0.08475434035 -0.149009347 
@@ -44660,6 +44802,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.006328459829 -0.03613274917 0.03229188174 
@@ -45909,6 +46052,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07092779875 -0.05476845056 -0.06963527948 
@@ -46118,6 +46262,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07881756872 0.01228506956 -0.06767056137 
@@ -46177,6 +46322,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07852237672 0.0007817000151 -0.06853219867 
@@ -46276,6 +46422,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.08531673998 0.03076612018 -0.09478572011 
@@ -46335,6 +46482,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07961145043 -0.004334350117 -0.07766892016 
@@ -46384,6 +46532,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.001189299976 -0.296646148 -0.1691768765 
@@ -46443,6 +46592,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.001805220032 -0.07653798163 0.02557270043 
@@ -46942,6 +47092,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.07900743932 -0.00273187994 -0.06434617192 
@@ -47061,6 +47212,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07001180947 0.03544018045 -0.02690226957 
@@ -47160,6 +47312,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07672359049 0.000342149986 -0.06886091828 
@@ -47299,6 +47452,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02887897007 0.01310915966 0.001014670008 
@@ -49168,6 +49322,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04034268856 -0.008067809977 0.01324647013 
@@ -49267,6 +49422,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01797645912 -0.003343099961 0.01157153957 
@@ -49366,6 +49522,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02722074091 -0.00799067039 0.01615083963 
@@ -50175,6 +50332,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04003487155 -0.009546480142 0.009793600067 
@@ -50394,6 +50552,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04060044885 -0.009817570448 0.01477781031 
@@ -50493,6 +50652,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0432561487 -0.007377299946 0.009528130293 
@@ -50672,6 +50832,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04483250156 -0.00811702013 0.008885839954 
@@ -50771,6 +50932,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0434425585 -0.008717100136 0.007951769978 
@@ -51070,6 +51232,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0456908308 -0.008749240078 0.007857159711 
@@ -51209,6 +51372,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04970848933 -0.006301010028 0.005332880188 
@@ -51468,6 +51632,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01928842068 -0.00238722004 0.01148010977 
@@ -52207,6 +52372,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01928566024 -0.003979240078 0.01258858014 
@@ -52386,6 +52552,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02099761926 -0.004926839843 0.01354782004 
@@ -52525,6 +52692,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04661165923 0.003534799907 -0.001026310027 
@@ -54314,6 +54482,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01683223061 -0.004017219879 0.01380148996 
@@ -54413,6 +54582,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01723341085 -0.004519899841 0.01327261981 
@@ -54592,6 +54762,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.03440656886 -0.01308889035 0.01411787979 
@@ -55291,6 +55462,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02259342931 -0.003780570114 0.01716374978 
@@ -55530,6 +55702,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02254790068 0.004810130224 0.01784157008 
@@ -55769,6 +55942,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01213593036 -0.1041328013 -0.03687411919 
@@ -57998,6 +58172,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08956412971 -0.02034899965 -0.09015581757 
@@ -58057,6 +58232,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.09074152261 -0.00673760986 -0.0880831331 
@@ -58116,6 +58292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0895088464 -0.01117722038 -0.09085424989 
@@ -58255,6 +58432,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0920489803 -0.01566536911 -0.0933117792 
@@ -58714,6 +58892,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08720681071 -0.004271199927 -0.08401796222 
@@ -58773,6 +58952,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08904554695 -0.003560509998 -0.08392941207 
@@ -59112,6 +59292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08996760845 -0.005637470167 -0.08912315965 
@@ -59321,6 +59502,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08786931634 -0.01811281964 -0.09383690357 
@@ -59810,6 +59992,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08215609193 -0.002011660021 -0.07365041226 
@@ -59909,6 +60092,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07567066699 -0.01348786987 -0.06917638332 
@@ -60108,6 +60292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07135649025 -0.0276705306 -0.06646201015 
@@ -60157,6 +60342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07434126735 -0.01942335069 -0.07095892727 
@@ -61696,6 +61882,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08394388109 -0.03960603103 -0.07401312888 
@@ -61755,6 +61942,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08503823727 -0.04377236962 -0.07709281147 
@@ -61814,6 +62002,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08525709063 -0.04179310054 -0.07569552958 
@@ -61873,6 +62062,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08525709063 -0.04179310054 -0.07569552958 
@@ -61962,6 +62152,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08503823727 -0.04377236962 -0.07709281147 
@@ -62021,6 +62212,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.09184835106 -0.0275299903 -0.08896864206 
@@ -62080,6 +62272,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.09083203971 -0.01833987981 -0.09221155196 
@@ -62179,6 +62372,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.09184835106 -0.0275299903 -0.08896864206 
@@ -62238,6 +62432,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08849514276 -0.03755814955 -0.08369299769 
@@ -62457,6 +62652,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08148307353 -0.03855469823 -0.07432790846 
@@ -62916,6 +63112,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07729223371 -0.009040540084 -0.07124947011 
@@ -63095,6 +63292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07691989839 -0.01636970043 -0.07569762319 
@@ -63194,6 +63392,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07658016682 -0.01569565013 -0.07072328776 
@@ -64093,6 +64292,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08773268759 -0.02909483947 -0.07983148098 
@@ -64312,6 +64512,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0712640807 -0.02635546029 -0.06709495932 
@@ -64511,6 +64712,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07473578304 -0.05214535818 -0.06115160137 
@@ -64890,6 +65092,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06415937841 -0.03041210957 -0.07093238831 
@@ -65469,6 +65672,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07550448179 -0.04013032839 -0.07240349054 
@@ -65608,6 +65812,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07088617235 -0.03192960098 -0.07051897049 
@@ -66107,6 +66312,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07235398889 -0.0401661098 -0.05869144946 
@@ -66676,6 +66882,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07312010974 -0.02706174925 -0.06667628139 
@@ -67055,6 +67262,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07312010974 -0.02706174925 -0.06667628139 
@@ -68234,6 +68442,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0624778606 -0.02207952924 -0.004454880022 
@@ -68293,6 +68502,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.03844939172 -0.1060919911 0.005818990059 
@@ -68552,6 +68762,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0585247986 -0.02765261941 0.002205850091 
@@ -68651,6 +68862,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04911381006 -0.0826221928 0.008436360396 
@@ -68790,6 +69002,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.03490477055 -0.06434241682 0.02450121008 
@@ -68849,6 +69062,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01937915012 -0.07325620949 0.02235944942 
@@ -68948,6 +69162,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02445673943 -0.05663305148 0.02794497088 
@@ -69127,6 +69342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01116179954 -0.0436405316 0.03642395139 
@@ -69186,6 +69402,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.009088849649 -0.04357438162 0.03532605991 
@@ -69285,6 +69502,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.008068669587 -0.04239787906 0.03434089944 
@@ -69344,6 +69562,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.008786509745 -0.008966170251 0.02339220047 
@@ -69443,6 +69662,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.003878609976 -0.04320114106 0.04352603853 
@@ -69622,6 +69842,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01235807035 -0.04318926856 0.0391862914 
@@ -69721,6 +69942,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01196887996 -0.04197278991 0.04204121977 
@@ -69780,6 +70002,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0003173699952 -0.05204819143 0.03739563003 
@@ -69919,6 +70142,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.004733220208 -0.07086805999 0.03229483962 
@@ -70098,6 +70322,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02372746915 -0.06479935348 0.03022053093 
@@ -70997,6 +71222,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02635022998 -0.07555165887 0.02638714947 
@@ -71096,6 +71322,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.03007786907 -0.06731925905 0.02687321045 
@@ -71195,6 +71422,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02001059055 -0.07411895692 0.0265218392 
@@ -71254,6 +71482,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02258495055 -0.07245787978 0.02874859981 
@@ -71313,6 +71542,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01790764928 -0.07327461243 0.02656269073 
@@ -71372,6 +71602,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01905580983 -0.07352270931 0.02539098077 
@@ -71471,6 +71702,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01905580983 -0.07352270931 0.02539098077 
@@ -71890,6 +72122,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02140158042 -0.06973218173 0.03029184043 
@@ -71989,6 +72222,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01322031021 -0.06695059687 0.03543832898 
@@ -72128,6 +72362,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.03504300863 -0.09834674746 0.01659177057 
@@ -72907,6 +73142,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01036992017 -0.07188870758 0.02796523087 
@@ -73166,6 +73402,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01266951021 -0.07475888729 0.03209374845 
@@ -73505,6 +73742,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.002195359906 -0.04501966015 0.04326784983 
@@ -73644,6 +73882,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.005074840039 -0.04342762008 0.03897565976 
@@ -73743,6 +73982,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.002195359906 -0.04501966015 0.04326784983 
@@ -73842,6 +74082,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.009805309586 -0.04116893932 0.04487344995 
@@ -73901,6 +74142,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.009805309586 -0.04116893932 0.04487344995 
@@ -74360,6 +74602,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01046229992 -0.07770680636 0.02400887944 
@@ -74699,6 +74942,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     0.005056379829 -0.09601969272 0.03459100053 
@@ -74958,6 +75202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     7.668999751e-05 -0.0493173413 0.03803367913 
@@ -75097,6 +75342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.05763931945 -0.1087015122 -0.1064296216 
@@ -75556,6 +75802,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06760363281 -0.06473746896 -0.05424889177 
@@ -75655,6 +75902,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06299249083 -0.09215406328 -0.09389477968 
@@ -75994,6 +76242,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07871057838 -0.04340295121 -0.08394230902 
@@ -77853,6 +78102,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07307268679 -0.03669074923 -0.09751982987 
@@ -77952,6 +78202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0783309266 -0.02216988057 -0.08912020177 
@@ -78091,6 +78342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06616514176 -0.03925194964 -0.1185892969 
@@ -78190,6 +78442,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07654286921 -0.02081310935 -0.1009410173 
@@ -78959,6 +79212,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08179491758 0.03246061131 -0.09154993296 
@@ -79018,6 +79272,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0752973631 -0.007132810075 -0.05993035063 
@@ -79437,6 +79692,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07177132368 0.058761511 -0.04377786815 
@@ -79646,6 +79902,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07484512031 0.01804764941 -0.04744315892 
@@ -79705,6 +79962,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07372061908 -0.02539850026 -0.0576419495 
@@ -79804,6 +80062,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06621506065 -0.0400330089 -0.01351302955 
@@ -79943,6 +80202,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06855679303 -0.02330403961 -0.01849232987 
@@ -80082,6 +80342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0738189891 0.04656801 -0.130312264 
@@ -81061,6 +81322,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.2182121873 -0.250308603 -0.1342947036 
@@ -81110,6 +81372,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.1702021807 -0.2092097551 -0.1023573428 
@@ -81289,6 +81552,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.1981550008 -0.2848209143 -0.1003170535 
@@ -81468,6 +81732,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.2035764754 -0.2591878772 -0.07485496998 
@@ -81687,6 +81952,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.1763461977 -0.2878371775 -0.06510504335 
@@ -81826,6 +82092,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.2119700164 -0.2397835851 -0.0925155133 
@@ -82205,6 +82472,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0624778606 -0.02207952924 -0.004454880022 
@@ -83424,6 +83692,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04169121012 -0.08001807332 0.01835235953 
@@ -83523,6 +83792,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.03490477055 -0.06434241682 0.02450121008 
@@ -84262,6 +84532,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0879233405 -0.1748702377 -0.1597401798 
@@ -84521,6 +84792,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.2125142366 -0.2296769768 -0.1199513674 
@@ -84620,6 +84892,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.2125142366 -0.2296769768 -0.1199513674 
@@ -85519,6 +85792,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02154465951 -0.2946495712 -0.07754634321 
@@ -85578,6 +85852,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07588072121 -0.2155949026 -0.2034385353 
@@ -85707,6 +85982,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06173330173 -0.2991688848 -0.1817339957 
@@ -85806,6 +86082,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.05209090933 -0.2152098715 -0.2053705454 
@@ -85865,6 +86142,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.06173330173 -0.2991688848 -0.1817339957 
@@ -86004,6 +86282,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.1183925569 -0.2698251307 -0.2188119143 
@@ -86063,6 +86342,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08237616718 -0.2672641873 -0.2211028337 
@@ -86122,6 +86402,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.1183925569 -0.2698251307 -0.2188119143 
@@ -86181,6 +86462,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.153040126 -0.3018946052 -0.1724615693 
@@ -86670,6 +86952,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.00231390004 -0.2681921124 -0.2164587826 
@@ -88359,6 +88642,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02063743956 -0.2792230248 -0.03336564079 
@@ -88458,6 +88742,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0191347301 -0.2531320751 -0.03438350186 
@@ -88557,6 +88842,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.0004639200051 -0.01453926042 0.04002010077 
@@ -90016,6 +90302,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.05989013985 0.08163086325 -0.04238184914 
@@ -90235,6 +90522,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.04928573966 0.07733272016 -0.01502028015 
@@ -90494,6 +90782,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.007796760183 -0.1266624033 0.008466009982 
@@ -90783,6 +91072,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.01800457947 -0.06550212204 -0.1545193344 
@@ -91682,6 +91972,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.005022349767 -0.03295660019 0.03272464126 
@@ -92931,6 +93222,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07305973768 -0.05950079858 -0.06548908353 
@@ -93140,6 +93432,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.08179491758 0.03246061131 -0.09154993296 
@@ -93199,6 +93492,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07926236838 0.01015412994 -0.08480347693 
@@ -93298,6 +93592,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07871455699 -0.003182369983 -0.09784966707 
@@ -93357,6 +93652,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07782492787 -0.0003415899992 -0.07931634784 
@@ -93406,6 +93702,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.02029109001 -0.2677243948 -0.2167883068 
@@ -93465,6 +93762,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.004817999899 -0.08561614156 0.02093471028 
@@ -93964,6 +94262,7 @@ Texture "obj-bump" "float" "scale" "float tex1" [0.010000] "texture tex2" "obj-b
 Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "color sigma_a" [0.05 0.05 0.05] "color sigma_prime_s" [3 3 3] "float roughness" [0.200000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump"  
 #Material "subsurface" "string name" "Skin1" "float scale" [1000]
 #Material "subsurface" "color sigma_a" [ 32 170 480] "color sigma_prime_s" [740 880 1010]
+Scale 1000 1000 1000
 Shape "trianglemesh"
   "point P" [
     -0.07998397946 0.001653410029 -0.07228946686 
