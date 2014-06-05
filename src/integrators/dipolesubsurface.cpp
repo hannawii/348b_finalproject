@@ -43,7 +43,11 @@
 #include "octree.h"
 #include "camera.h"
 #include "floatfile.h"
+
+#define NUM_DIPOLE 5 //should be odd!
+#define THICKNESS 0.25f
 struct DiffusionReflectance;
+struct MultipoleDR;
 
 // DipoleSubsurfaceIntegrator Local Declarations
 struct SubsurfaceOctreeNode {
@@ -127,7 +131,7 @@ struct SubsurfaceOctreeNode {
             E /= nChildren;
         }
     }
-    Spectrum Mo(const BBox &nodeBound, const Point &p, const DiffusionReflectance &Rd,
+    Spectrum Mo(const BBox &nodeBound, const Point &p, const DiffusionReflectance &Rd, //const DiffusionReflectance &Rd,
                 float maxError);
 
     // SubsurfaceOctreeNode Public Data
@@ -152,6 +156,10 @@ struct DiffusionReflectance {
         alphap = sigmap_s / sigmap_t;
         zpos = Spectrum(1.f) / sigmap_t;
         zneg = -zpos * (1.f + (4.f/3.f) * A);
+        // printf("zpos: ");
+        // zpos.Print();
+        // printf("zneg: ");
+        // zneg.Print();
     }
     Spectrum operator()(float d2) const {
         Spectrum dpos = Sqrt(Spectrum(d2) + zpos * zpos);
@@ -161,6 +169,8 @@ struct DiffusionReflectance {
               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
              (zneg * (dneg * sigma_tr + Spectrum(1.f)) *
               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
+        //printf("%f: ", 1000*d2);
+        //Rd.Print();
         return Rd.Clamp();
     }
 
@@ -169,7 +179,85 @@ struct DiffusionReflectance {
     float A;
 };
 
+struct MultipoleDR {
+    // Initializes constants for Multipole DiffusionReflectance
+    MultipoleDR(const Spectrum &sigma_a, const Spectrum &sigmap_s, float eta, float thickness) {
+        A = (1.f + Fdr(eta)) / (1.f - Fdr(eta));
+        sigmap_t = sigma_a + sigmap_s;
+        sigma_tr = Sqrt(3.f * sigma_a * sigmap_t);        
+        alphap = sigmap_s / sigmap_t;
+        depth = Spectrum(thickness);
+        
+        Spectrum lfree = Spectrum(1.f) / sigmap_t;
+        Spectrum zb = (2.f/3.f) * A * lfree;
+        int shift = -(NUM_DIPOLE/2);
+        for (int i = 0; i < NUM_DIPOLE; i++) {
+            int j = i-shift;
+            zpos[i] = 2*j*(depth + 2*zb) + lfree;
+            zneg[i] = 2*j*(depth + 2*zb) - lfree - 2*zb;
+        }
+    }
 
+    // Computes R(r) for the given Multipole DiffusionReflectance constants
+    // void operator()(float d2, Spectrum *Rd, Spectrum *Td) const {
+    //     *Rd = Spectrum(0.f);
+    //     *Td = Spectrum(0.f);
+    //     for (int i = 0; i < NUM_DIPOLE; i++) {
+    //         Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
+    //         Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
+    //         *Rd += (alphap / (4.f * M_PI)) *
+    //             ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
+    //               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
+    //              (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
+    //               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
+
+    //         *Td += (alphap / (4.f * M_PI)) *
+    //             (((depth - zpos[i]) * (dpos * sigma_tr + Spectrum(1.f)) *
+    //               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
+    //              ((depth - zneg[i]) * (dneg * sigma_tr + Spectrum(1.f)) *
+    //               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));            
+    //     }
+
+    //     *Rd = (*Rd).Clamp();
+    //     *Td = (*Td).Clamp();
+    // }
+
+    Spectrum operator()(float d2) const {
+        Spectrum Rd = Spectrum(0.f);
+        for (int i = 0; i < NUM_DIPOLE; i++) {
+            Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
+            Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
+            Rd += (alphap / (4.f * M_PI)) *
+                ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
+                  Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
+                 (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
+                  Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));          
+        }
+        //printf("%f: ", d2);
+        //Rd.Print();
+        return Rd.Clamp();
+    }
+
+    // Multipole DiffusionReflectance Data
+    Spectrum zpos[NUM_DIPOLE], zneg[NUM_DIPOLE], sigmap_t, sigma_tr, alphap, depth;
+    float A;
+};
+
+
+// performs convolution
+void convolve(vector<Spectrum> s1, vector<Spectrum> s2, vector<Spectrum> result) {
+    int size = s1.size() + s2.size() - 1;
+    for (int i = 0; i < size; i++) {
+        int i1 = i;
+        result.push_back(Spectrum(0.f));
+        for (int j = 0; j < s2.size(); j++) {
+            if (i1 >= 0 && i1 < s1.size()) {
+                result[i] += s1[i1] * s2[j];
+            }
+            i1--;
+        }
+    }
+}
 
 // DipoleSubsurfaceIntegrator Method Definitions
 DipoleSubsurfaceIntegrator::~DipoleSubsurfaceIntegrator() {
@@ -292,12 +380,25 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             // Use hierarchical integration to evaluate reflection from dipole model
             PBRT_SUBSURFACE_STARTED_OCTREE_LOOKUP(const_cast<Point *>(&p));
             DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
+            //MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS);
+
+            /*if (!numLi) {
+                for (float i = 0; i < 0.04; i+=0.0001) {
+                    printf("%f: ", i);
+                    Rd(i).Print();
+                }
+                exit(-1);
+            }*/
+
             Spectrum Mo = octree->Mo(octreeBounds, p, Rd, maxError);
+            //Mo.Print();
             FresnelDielectric fresnel(1.f, bssrdf->eta());
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
             float Fdt = 1.f - Fdr(bssrdf->eta());
             L += (INV_PI * Ft) * (Fdt * Mo);
             PBRT_SUBSURFACE_FINISHED_OCTREE_LOOKUP();
+
+            //exit(-1);
         }
     }
     L += UniformSampleAllLights(scene, renderer, arena, p, n,
@@ -315,7 +416,7 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
 
 
 Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
-        const DiffusionReflectance &Rd, float maxError) {
+        const DiffusionReflectance &Rd /*const DiffusionReflectance &Rd*/, float maxError) {
     // Compute $M_\roman{o}$ at node if error is low enough
     float dw = sumArea / DistanceSquared(pt, p);
     if (dw < maxError && !nodeBound.Inside(pt))

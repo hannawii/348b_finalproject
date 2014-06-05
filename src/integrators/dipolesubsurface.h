@@ -75,6 +75,7 @@ public:
         RNG &rng, MemoryArena &arena) const;
     void RequestSamples(Sampler *sampler, Sample *sample, const Scene *scene);
     void Preprocess(const Scene *, const Camera *, const Renderer *);
+
 private:
     // DipoleSubsurfaceIntegrator Private Data
     int maxSpecularDepth;
