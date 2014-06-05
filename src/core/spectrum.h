@@ -396,12 +396,12 @@ public:
         *this = s;
     }
     void Print() const {
-        printf("[ ");
-        for (int i = 0; i < 3; ++i) {
-            printf("%f", c[i]);
-            printf(", ");
+        //printf("[ ");
+        for (int i = 0; i < 1; ++i) {
+            printf("%f\n", c[i]);
+            //printf(", ");
         }
-        printf("]\n");
+        //printf("]\n");
     }
     static RGBSpectrum FromRGB(const float rgb[3],
             SpectrumType type = SPECTRUM_REFLECTANCE) {

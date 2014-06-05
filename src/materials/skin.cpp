@@ -60,8 +60,8 @@ BSDF *SkinMaterial::GetBSDF(const DifferentialGeometry &dgGeom, const Differenti
 
 BSSRDF *SkinMaterial::GetBSSRDF(const DifferentialGeometry &dgGeom, const DifferentialGeometry &dgShading, MemoryArena &arena) const {
     float e = eta->Evaluate(dgShading);
-    return BSDF_ALLOC(arena, BSSRDF)(scale * sigma_a->Evaluate(dgShading),
-        scale * sigma_prime_s->Evaluate(dgShading), e);
+    return BSDF_ALLOC(arena, BSSRDF)(sigma_a->Evaluate(dgShading),
+        sigma_prime_s->Evaluate(dgShading), e);
 }
 
 

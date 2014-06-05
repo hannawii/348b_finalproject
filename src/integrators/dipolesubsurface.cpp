@@ -45,7 +45,7 @@
 #include "floatfile.h"
 
 #define NUM_DIPOLE 5 //should be odd!
-#define THICKNESS 0.25f
+#define THICKNESS 0.25
 struct DiffusionReflectance;
 struct MultipoleDR;
 
@@ -131,7 +131,7 @@ struct SubsurfaceOctreeNode {
             E /= nChildren;
         }
     }
-    Spectrum Mo(const BBox &nodeBound, const Point &p, const DiffusionReflectance &Rd, //const DiffusionReflectance &Rd,
+    Spectrum Mo(const BBox &nodeBound, const Point &p, const MultipoleDR &Rd, //const DiffusionReflectance &Rd,
                 float maxError);
 
     // SubsurfaceOctreeNode Public Data
@@ -156,10 +156,6 @@ struct DiffusionReflectance {
         alphap = sigmap_s / sigmap_t;
         zpos = Spectrum(1.f) / sigmap_t;
         zneg = -zpos * (1.f + (4.f/3.f) * A);
-        // printf("zpos: ");
-        // zpos.Print();
-        // printf("zneg: ");
-        // zneg.Print();
     }
     Spectrum operator()(float d2) const {
         Spectrum dpos = Sqrt(Spectrum(d2) + zpos * zpos);
@@ -169,8 +165,6 @@ struct DiffusionReflectance {
               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
              (zneg * (dneg * sigma_tr + Spectrum(1.f)) *
               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
-        //printf("%f: ", 1000*d2);
-        //Rd.Print();
         return Rd.Clamp();
     }
 
@@ -186,11 +180,13 @@ struct MultipoleDR {
         sigmap_t = sigma_a + sigmap_s;
         sigma_tr = Sqrt(3.f * sigma_a * sigmap_t);        
         alphap = sigmap_s / sigmap_t;
-        depth = Spectrum(thickness);
+
         
         Spectrum lfree = Spectrum(1.f) / sigmap_t;
+        depth = lfree;//Spectrum(thickness);
+
         Spectrum zb = (2.f/3.f) * A * lfree;
-        int shift = -(NUM_DIPOLE/2);
+        int shift = (NUM_DIPOLE/2);
         for (int i = 0; i < NUM_DIPOLE; i++) {
             int j = i-shift;
             zpos[i] = 2*j*(depth + 2*zb) + lfree;
@@ -227,14 +223,13 @@ struct MultipoleDR {
         for (int i = 0; i < NUM_DIPOLE; i++) {
             Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
             Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
-            Rd += (alphap / (4.f * M_PI)) *
+            Spectrum temp = (alphap / (4.f * M_PI)) *
                 ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
                  (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
-                  Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));          
+                  Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
+            Rd += temp;
         }
-        //printf("%f: ", d2);
-        //Rd.Print();
         return Rd.Clamp();
     }
 
@@ -354,13 +349,13 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
         octreeBounds = Union(octreeBounds, irradiancePoints[i].p);
     for (uint32_t i = 0; i < irradiancePoints.size(); ++i)
         octree->Insert(octreeBounds, &irradiancePoints[i], octreeArena);
-    octree->InitHierarchy();
+    octree->InitHierarchy(); 
 }
 
 
 Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *renderer,
         const RayDifferential &ray, const Intersection &isect,
-        const Sample *sample, RNG &rng, MemoryArena &arena) const {
+        const Sample *sample, RNG &rng, MemoryArena &arena) const {  
     Spectrum L(0.);
     Vector wo = -ray.d;
     // Compute emitted light if ray hit an area light source
@@ -379,16 +374,14 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
         if (!sigmap_t.IsBlack()) {
             // Use hierarchical integration to evaluate reflection from dipole model
             PBRT_SUBSURFACE_STARTED_OCTREE_LOOKUP(const_cast<Point *>(&p));
-            DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
-            //MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS);
+            //DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
+            MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS);
 
-            /*if (!numLi) {
-                for (float i = 0; i < 0.04; i+=0.0001) {
-                    printf("%f: ", i);
-                    Rd(i).Print();
-                }
-                exit(-1);
-            }*/
+            /*for (float i = 0; i < 40; i+=0.1) {
+                //printf("%f: ", i);
+                Rd(i*i).Print();
+            }
+            exit(-1);*/
 
             Spectrum Mo = octree->Mo(octreeBounds, p, Rd, maxError);
             //Mo.Print();
@@ -416,7 +409,7 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
 
 
 Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
-        const DiffusionReflectance &Rd /*const DiffusionReflectance &Rd*/, float maxError) {
+        const MultipoleDR &Rd /*const DiffusionReflectance &Rd*/, float maxError) {
     // Compute $M_\roman{o}$ at node if error is low enough
     float dw = sumArea / DistanceSquared(pt, p);
     if (dw < maxError && !nodeBound.Inside(pt))
