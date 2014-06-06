@@ -45,6 +45,9 @@
 #include "floatfile.h"
 
 #define NUM_DIPOLE 5 //should be odd!
+#define MAX_RADIUS 40.0f
+#define D12_SIZE 400
+#define RADIUS_PREC 0.1f
 #define THICKNESS 0.25
 struct DiffusionReflectance;
 struct MultipoleDR;
@@ -240,7 +243,7 @@ struct MultipoleDR {
 
 
 // performs convolution
-void convolve(vector<Spectrum> s1, vector<Spectrum> s2, vector<Spectrum> result) {
+void convolve(vector<Spectrum> &s1, vector<Spectrum> &s2, vector<Spectrum> &result) {
     int size = s1.size() + s2.size() - 1;
     for (int i = 0; i < size; i++) {
         int i1 = i;
@@ -350,6 +353,34 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     for (uint32_t i = 0; i < irradiancePoints.size(); ++i)
         octree->Insert(octreeBounds, &irradiancePoints[i], octreeArena);
     octree->InitHierarchy(); 
+
+    // Precompute reflectances and transmittances
+    MultipoleDR Rd1(sigma_a1, sigmap_s1, eta1, thick1);
+    MultipoleDR Rd2(sigma_a2, sigmap_s2, eta2, thick2);
+
+    Vector<Spectrum> R1, R2, T1, T2;
+    R1.reserve(D12_SIZE);
+    R2.reserve(D12_SIZE);
+    T1.reserve(D12_SIZE);
+    T2.reserve(D12_SIZE);
+
+    for (int i = 0; i < D12_SIZE; i++) {
+        float dist = (float(i) * RADIUS_PREC) * (float(i) * RADIUS_PREC);
+        Rd1(dist, &R1[i], &T1[i]);
+        Rd2(dist, &R2[i], &T2[i]);
+    }
+
+    Vector<Spectrum> R2T1, T1R2T1, R2R1;
+    convolve(R2, T1, R2T1);
+    assert(R2T1.size() == R2.size() + T1.size() - 1);
+    convolve(T1, R2T1, T1R2T1);
+    assert(T1R2T1.size() == T1.size() + R2T1.size() - 1);
+    convolve(R2, R1, R2R1);
+    assert(R2R1.size() == R2.size() + R1.size() - 1);
+
+    for (int i = 0; i < D12_SIZE; i++) {
+        R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
+    }
 }
 
 
@@ -375,7 +406,7 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             // Use hierarchical integration to evaluate reflection from dipole model
             PBRT_SUBSURFACE_STARTED_OCTREE_LOOKUP(const_cast<Point *>(&p));
             //DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
-            MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS);
+            MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS); // TODO: not needed
 
             /*for (float i = 0; i < 40; i+=0.1) {
                 //printf("%f: ", i);
@@ -415,7 +446,7 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
     if (dw < maxError && !nodeBound.Inside(pt))
     {
         PBRT_SUBSURFACE_ADDED_INTERIOR_CONTRIBUTION(const_cast<SubsurfaceOctreeNode *>(this));
-        return Rd(DistanceSquared(pt, p)) * E * sumArea;
+        return Rd(DistanceSquared(pt, p)) * E * sumArea; // TODO: Modify as lookup
     }
 
     // Otherwise compute $M_\roman{o}$ from points in leaf or recursively visit children
@@ -425,7 +456,7 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
         for (int i = 0; i < 8; ++i) {
             if (!ips[i]) break;
             PBRT_SUBSURFACE_ADDED_POINT_CONTRIBUTION(const_cast<IrradiancePoint *>(ips[i]));
-            Mo += Rd(DistanceSquared(pt, ips[i]->p)) * ips[i]->E * ips[i]->area;
+            Mo += Rd(DistanceSquared(pt, ips[i]->p)) * ips[i]->E * ips[i]->area; // TODO: Modify as lookup
         }
     }
     else {
