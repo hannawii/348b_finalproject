@@ -61,11 +61,22 @@ struct IrradiancePoint {
 class DipoleSubsurfaceIntegrator : public SurfaceIntegrator {
 public:
     // DipoleSubsurfaceIntegrator Public Methods
-    DipoleSubsurfaceIntegrator(int mdepth, float merror, float mindist,
-                               const string &fn) {
+    DipoleSubsurfaceIntegrator(int mdepth, float merror, float mindist, 
+                                float e1, float e2, float t_epi, float t_derm,
+                                Spectrum s_a1, Spectrum s_a2,
+                                Spectrum s_p1, Spectrum s_p2,
+                                const string &fn) {
         maxSpecularDepth = mdepth;
         maxError = merror;
         minSampleDist = mindist;
+        eta_1 = e1;
+        eta_2 = e2;
+        thickness_epi = t_epi;
+        thickness_derm = t_derm;
+        sigma_a_1 = s_a1;
+        sigma_a_2 = s_a2;
+        sigma_prime_s_1 = s_p1;
+        sigma_prime_s_2 = s_p2;
         filename = fn;
         octree = NULL;
     }
@@ -79,7 +90,8 @@ public:
 private:
     // DipoleSubsurfaceIntegrator Private Data
     int maxSpecularDepth;
-    float maxError, minSampleDist;
+    float maxError, minSampleDist, eta_1, eta_2, thickness_epi, thickness_derm;
+    Spectrum sigma_a_1, sigma_a_2, sigma_prime_s_1, sigma_prime_s_2;
     string filename;
     vector<IrradiancePoint> irradiancePoints;
     BBox octreeBounds;

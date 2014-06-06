@@ -476,9 +476,20 @@ DipoleSubsurfaceIntegrator *CreateDipoleSubsurfaceIntegrator(const ParamSet &par
     int maxDepth = params.FindOneInt("maxdepth", 5);
     float maxError = params.FindOneFloat("maxerror", .05f);
     float minDist = params.FindOneFloat("minsampledistance", .25f);
+    float eta_1 = params.FindOneFloat("eta_1", 1.4f);
+    float eta_2 = params.FindOneFloat("eta_2", 1.f);
+    float thickness_epi = params.FindOneFloat("thickness_epi", 0.25f);
+    float thickness_derm = params.FindOneFloat("thickness_derm", 20.f);
+    Spectrum sigma_a_1 = params.FindOneSpectrum("sigma_a_1", Spectrum(0.25f));
+    Spectrum sigma_a_2 = params.FindOneSpectrum("sigma_a_2", Spectrum(0.25f));
+    Spectrum sigma_prime_s_1 = params.FindOneSpectrum("sigma_prime_s_1", Spectrum(0.25f));
+    Spectrum sigma_prime_s_2 = params.FindOneSpectrum("sigma_prime_s_2", Spectrum(0.25f));
+
     string pointsfile = params.FindOneFilename("pointsfile", "");
     if (PbrtOptions.quickRender) { maxError *= 4.f; minDist *= 4.f; }
-    return new DipoleSubsurfaceIntegrator(maxDepth, maxError, minDist, pointsfile);
+    return new DipoleSubsurfaceIntegrator(maxDepth, maxError, minDist, 
+        eta_1, eta_2, thickness_epi, thickness_derm, sigma_a_1, sigma_a_2, 
+        sigma_prime_s_1, sigma_prime_s_2, pointsfile);
 }
 
 
