@@ -374,8 +374,8 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
 
     //printf("R1 size: %d   T1R2T1 size: %d   R2R1 size: %d \n", R1.size(), T1R2T1.size(), R2R1.size());
     for (int i = 0; i < D12_SIZE; i++) {
-        //R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
-        R12.push_back(R1[i]);
+        R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
+        //R12.push_back(R1[i]);
     }
 }
 

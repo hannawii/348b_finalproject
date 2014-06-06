@@ -1,7 +1,7 @@
 # Converted from "../scenes/project/head.OBJ" by obj2pbrt
 # Scene bounds: (-0.221155, -0.305050, -0.221103) - (0.232135, 0.116040, 0.053476)
 
-Film "image" "string filename" ["head.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
+Film "image" "string filename" ["head_calc_sigma.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
 
 SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.7]
    "float maxerror" [.05]
