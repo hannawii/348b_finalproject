@@ -134,8 +134,7 @@ struct SubsurfaceOctreeNode {
             E /= nChildren;
         }
     }
-    Spectrum Mo(const BBox &nodeBound, const Point &p, const MultipoleDR &Rd, //const DiffusionReflectance &Rd,
-                float maxError);
+    Spectrum Mo(const BBox &nodeBound, const Point &pt, const float maxError, const vector<Spectrum> &R12);
 
     // SubsurfaceOctreeNode Public Data
     Point p;
@@ -198,43 +197,43 @@ struct MultipoleDR {
     }
 
     // Computes R(r) for the given Multipole DiffusionReflectance constants
-    // void operator()(float d2, Spectrum *Rd, Spectrum *Td) const {
-    //     *Rd = Spectrum(0.f);
-    //     *Td = Spectrum(0.f);
-    //     for (int i = 0; i < NUM_DIPOLE; i++) {
-    //         Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
-    //         Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
-    //         *Rd += (alphap / (4.f * M_PI)) *
-    //             ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
-    //               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
-    //              (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
-    //               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
-
-    //         *Td += (alphap / (4.f * M_PI)) *
-    //             (((depth - zpos[i]) * (dpos * sigma_tr + Spectrum(1.f)) *
-    //               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
-    //              ((depth - zneg[i]) * (dneg * sigma_tr + Spectrum(1.f)) *
-    //               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));            
-    //     }
-
-    //     *Rd = (*Rd).Clamp();
-    //     *Td = (*Td).Clamp();
-    // }
-
-    Spectrum operator()(float d2) const {
-        Spectrum Rd = Spectrum(0.f);
+    void operator()(float d2, Spectrum *Rd, Spectrum *Td) const {
+        *Rd = Spectrum(0.f);
+        *Td = Spectrum(0.f);
         for (int i = 0; i < NUM_DIPOLE; i++) {
             Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
             Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
-            Spectrum temp = (alphap / (4.f * M_PI)) *
+            *Rd += (alphap / (4.f * M_PI)) *
                 ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
                  (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
-            Rd += temp;
+
+            *Td += (alphap / (4.f * M_PI)) *
+                (((depth - zpos[i]) * (dpos * sigma_tr + Spectrum(1.f)) *
+                  Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
+                 ((depth - zneg[i]) * (dneg * sigma_tr + Spectrum(1.f)) *
+                  Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));            
         }
-        return Rd.Clamp();
+
+        *Rd = (*Rd).Clamp();
+        *Td = (*Td).Clamp();
     }
+
+    // Spectrum operator()(float d2) const {
+    //     Spectrum Rd = Spectrum(0.f);
+    //     for (int i = 0; i < NUM_DIPOLE; i++) {
+    //         Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
+    //         Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
+    //         Spectrum temp = (alphap / (4.f * M_PI)) *
+    //             ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
+    //               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
+    //              (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
+    //               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
+    //         Rd += temp;
+    //     }
+    //     return Rd.Clamp();
+    // }
 
     // Multipole DiffusionReflectance Data
     Spectrum zpos[NUM_DIPOLE], zneg[NUM_DIPOLE], sigmap_t, sigma_tr, alphap, depth;
@@ -248,8 +247,8 @@ void convolve(vector<Spectrum> &s1, vector<Spectrum> &s2, vector<Spectrum> &resu
     for (int i = 0; i < size; i++) {
         int i1 = i;
         result.push_back(Spectrum(0.f));
-        for (int j = 0; j < s2.size(); j++) {
-            if (i1 >= 0 && i1 < s1.size()) {
+        for (int j = 0; j < int(s2.size()); j++) {
+            if (i1 >= 0 && i1 < int(s1.size())) {
                 result[i] += s1[i1] * s2[j];
             }
             i1--;
@@ -355,22 +354,24 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     octree->InitHierarchy(); 
 
     // Precompute reflectances and transmittances
-    MultipoleDR Rd1(sigma_a1, sigmap_s1, eta1, thick1);
-    MultipoleDR Rd2(sigma_a2, sigmap_s2, eta2, thick2);
+    MultipoleDR Rd1(sigma_a_1, sigma_prime_s_1, eta_1, thickness_epi);
+    MultipoleDR Rd2(sigma_a_2, sigma_prime_s_2, eta_2, thickness_derm);
 
-    Vector<Spectrum> R1, R2, T1, T2;
+    vector<Spectrum> R1, R2, T1, T2;
     R1.reserve(D12_SIZE);
     R2.reserve(D12_SIZE);
     T1.reserve(D12_SIZE);
     T2.reserve(D12_SIZE);
 
+    printf("here!\n");
     for (int i = 0; i < D12_SIZE; i++) {
         float dist = (float(i) * RADIUS_PREC) * (float(i) * RADIUS_PREC);
         Rd1(dist, &R1[i], &T1[i]);
         Rd2(dist, &R2[i], &T2[i]);
     }
 
-    Vector<Spectrum> R2T1, T1R2T1, R2R1;
+    printf("hi!!\n");
+    vector<Spectrum> R2T1, T1R2T1, R2R1;
     convolve(R2, T1, R2T1);
     assert(R2T1.size() == R2.size() + T1.size() - 1);
     convolve(T1, R2T1, T1R2T1);
@@ -378,6 +379,7 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     convolve(R2, R1, R2R1);
     assert(R2R1.size() == R2.size() + R1.size() - 1);
 
+    printf("wassup!!\n");
     for (int i = 0; i < D12_SIZE; i++) {
         R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
     }
@@ -406,7 +408,7 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             // Use hierarchical integration to evaluate reflection from dipole model
             PBRT_SUBSURFACE_STARTED_OCTREE_LOOKUP(const_cast<Point *>(&p));
             //DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
-            MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS); // TODO: not needed
+            //MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS); // TODO: not needed
 
             /*for (float i = 0; i < 40; i+=0.1) {
                 //printf("%f: ", i);
@@ -414,7 +416,7 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             }
             exit(-1);*/
 
-            Spectrum Mo = octree->Mo(octreeBounds, p, Rd, maxError);
+            Spectrum Mo = octree->Mo(octreeBounds, p, maxError, R12);
             //Mo.Print();
             FresnelDielectric fresnel(1.f, bssrdf->eta());
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
@@ -439,14 +441,21 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
 }
 
 
-Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
-        const MultipoleDR &Rd /*const DiffusionReflectance &Rd*/, float maxError) {
+Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const float maxError, const vector<Spectrum> &R12) {
     // Compute $M_\roman{o}$ at node if error is low enough
     float dw = sumArea / DistanceSquared(pt, p);
     if (dw < maxError && !nodeBound.Inside(pt))
     {
         PBRT_SUBSURFACE_ADDED_INTERIOR_CONTRIBUTION(const_cast<SubsurfaceOctreeNode *>(this));
-        return Rd(DistanceSquared(pt, p)) * E * sumArea; // TODO: Modify as lookup
+        int index = 0;
+        float dist = DistanceSquared(pt, p);
+        if (dist >= MAX_RADIUS) {
+            index = RADIUS_PREC - 1;
+        } else {
+            index = int(dist*10);
+            if (index >= RADIUS_PREC) index--;
+        }
+        return /*Rd(DistanceSquared(pt, p))*/R12[index] * E * sumArea; // TODO: Modify as lookup
     }
 
     // Otherwise compute $M_\roman{o}$ from points in leaf or recursively visit children
@@ -456,7 +465,15 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
         for (int i = 0; i < 8; ++i) {
             if (!ips[i]) break;
             PBRT_SUBSURFACE_ADDED_POINT_CONTRIBUTION(const_cast<IrradiancePoint *>(ips[i]));
-            Mo += Rd(DistanceSquared(pt, ips[i]->p)) * ips[i]->E * ips[i]->area; // TODO: Modify as lookup
+            int index = 0;
+            float dist = DistanceSquared(pt, ips[i]->p);
+            if (dist >= MAX_RADIUS) {
+                index = RADIUS_PREC - 1;
+            } else {
+                index = int(dist*10);
+                if (index >= RADIUS_PREC) index--;
+            }
+            Mo += /*Rd(DistanceSquared(pt, ips[i]->p))*/R12[index] * ips[i]->E * ips[i]->area; // TODO: Modify as lookup
         }
     }
     else {
@@ -465,7 +482,7 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt,
         for (int child = 0; child < 8; ++child) {
             if (!children[child]) continue;
             BBox childBound = octreeChildBound(child, nodeBound, pMid);
-            Mo += children[child]->Mo(childBound, pt, Rd, maxError);
+            Mo += children[child]->Mo(childBound, pt, maxError, R12);
         }
     }
     return Mo;

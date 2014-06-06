@@ -89,6 +89,7 @@ public:
 
 private:
     // DipoleSubsurfaceIntegrator Private Data
+    vector<Spectrum> R12;
     int maxSpecularDepth;
     float maxError, minSampleDist, eta_1, eta_2, thickness_epi, thickness_derm;
     Spectrum sigma_a_1, sigma_a_2, sigma_prime_s_1, sigma_prime_s_2;
