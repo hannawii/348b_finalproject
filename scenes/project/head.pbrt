@@ -6,8 +6,8 @@ Film "image" "string filename" ["head.exr"]  "integer xresolution" [512] "intege
 SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.7]
    "float maxerror" [.05]
    "string pointsfile" "head_points_scaledp7.out"
-    "color sigma_a_1" [.74 .88 1.01] 
-    "color sigma_a_2" [.74 .88 1.01] 
+    "color sigma_a_1" [.032 0.17 0.48] 
+    "color sigma_a_2" [.032 0.17 0.48] 
     "color sigma_prime_s_1" [.74 .88 1.01] 
     "color sigma_prime_s_2" [.74 .88 1.01] 
     "float eta_1" [1.4] 

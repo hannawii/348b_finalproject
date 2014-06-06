@@ -197,27 +197,27 @@ struct MultipoleDR {
     }
 
     // Computes R(r) for the given Multipole DiffusionReflectance constants
-    void operator()(float d2, Spectrum *Rd, Spectrum *Td) const {
-        *Rd = Spectrum(0.f);
-        *Td = Spectrum(0.f);
+    void operator()(float d2, vector<Spectrum> &Rd, vector<Spectrum> &Td) const {
+        Spectrum R = Spectrum(0.f);
+        Spectrum T = Spectrum(0.f);
         for (int i = 0; i < NUM_DIPOLE; i++) {
             Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
             Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
-            *Rd += (alphap / (4.f * M_PI)) *
+            R += (alphap / (4.f * M_PI)) *
                 ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
                  (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
 
-            *Td += (alphap / (4.f * M_PI)) *
+            T += (alphap / (4.f * M_PI)) *
                 (((depth - zpos[i]) * (dpos * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
                  ((depth - zneg[i]) * (dneg * sigma_tr + Spectrum(1.f)) *
                   Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));            
         }
 
-        *Rd = (*Rd).Clamp();
-        *Td = (*Td).Clamp();
+        Rd.push_back(R.Clamp());
+        Td.push_back(T.Clamp());
     }
 
     // Spectrum operator()(float d2) const {
@@ -358,19 +358,12 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     MultipoleDR Rd2(sigma_a_2, sigma_prime_s_2, eta_2, thickness_derm);
 
     vector<Spectrum> R1, R2, T1, T2;
-    R1.reserve(D12_SIZE);
-    R2.reserve(D12_SIZE);
-    T1.reserve(D12_SIZE);
-    T2.reserve(D12_SIZE);
-
-    printf("here!\n");
     for (int i = 0; i < D12_SIZE; i++) {
         float dist = (float(i) * RADIUS_PREC) * (float(i) * RADIUS_PREC);
-        Rd1(dist, &R1[i], &T1[i]);
-        Rd2(dist, &R2[i], &T2[i]);
+        Rd1(dist, R1, T1);
+        Rd2(dist, R2, T2);
     }
 
-    printf("hi!!\n");
     vector<Spectrum> R2T1, T1R2T1, R2R1;
     convolve(R2, T1, R2T1);
     assert(R2T1.size() == R2.size() + T1.size() - 1);
@@ -379,9 +372,10 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     convolve(R2, R1, R2R1);
     assert(R2R1.size() == R2.size() + R1.size() - 1);
 
-    printf("wassup!!\n");
+    //printf("R1 size: %d   T1R2T1 size: %d   R2R1 size: %d \n", R1.size(), T1R2T1.size(), R2R1.size());
     for (int i = 0; i < D12_SIZE; i++) {
-        R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
+        //R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
+        R12.push_back(R1[i]);
     }
 }
 
@@ -410,12 +404,6 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             //DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
             //MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS); // TODO: not needed
 
-            /*for (float i = 0; i < 40; i+=0.1) {
-                //printf("%f: ", i);
-                Rd(i*i).Print();
-            }
-            exit(-1);*/
-
             Spectrum Mo = octree->Mo(octreeBounds, p, maxError, R12);
             //Mo.Print();
             FresnelDielectric fresnel(1.f, bssrdf->eta());
@@ -423,8 +411,6 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             float Fdt = 1.f - Fdr(bssrdf->eta());
             L += (INV_PI * Ft) * (Fdt * Mo);
             PBRT_SUBSURFACE_FINISHED_OCTREE_LOOKUP();
-
-            //exit(-1);
         }
     }
     L += UniformSampleAllLights(scene, renderer, arena, p, n,
@@ -448,13 +434,14 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
     {
         PBRT_SUBSURFACE_ADDED_INTERIOR_CONTRIBUTION(const_cast<SubsurfaceOctreeNode *>(this));
         int index = 0;
-        float dist = DistanceSquared(pt, p);
+        float dist = sqrt(DistanceSquared(pt, p));
         if (dist >= MAX_RADIUS) {
-            index = RADIUS_PREC - 1;
+            index = D12_SIZE - 1;
         } else {
             index = int(dist*10);
-            if (index >= RADIUS_PREC) index--;
+            if (index >= D12_SIZE) index = D12_SIZE-1;
         }
+        //printf("dist: %f  index: %d\n", dist, index);
         return /*Rd(DistanceSquared(pt, p))*/R12[index] * E * sumArea; // TODO: Modify as lookup
     }
 
@@ -466,13 +453,14 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
             if (!ips[i]) break;
             PBRT_SUBSURFACE_ADDED_POINT_CONTRIBUTION(const_cast<IrradiancePoint *>(ips[i]));
             int index = 0;
-            float dist = DistanceSquared(pt, ips[i]->p);
+            float dist = sqrt(DistanceSquared(pt, ips[i]->p));
             if (dist >= MAX_RADIUS) {
-                index = RADIUS_PREC - 1;
+                index = D12_SIZE - 1;
             } else {
                 index = int(dist*10);
-                if (index >= RADIUS_PREC) index--;
+                if (index >= D12_SIZE) index = D12_SIZE-1;
             }
+            //printf("dist: %f  index: %d\n", dist, index);
             Mo += /*Rd(DistanceSquared(pt, ips[i]->p))*/R12[index] * ips[i]->E * ips[i]->area; // TODO: Modify as lookup
         }
     }
