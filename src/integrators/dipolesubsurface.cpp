@@ -194,6 +194,9 @@ struct MultipoleDR {
             int j = i-shift;
             zpos[i] = 2*j*(depth + 2*zb) + lfree;
             zneg[i] = 2*j*(depth + 2*zb) - lfree - 2*zb;
+            printf("i %d", j);
+            zpos[i].Print();
+            zneg[i].Print();
         }
     }
 
@@ -358,7 +361,7 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
 
     // Precompute reflectances and transmittances
     MultipoleDR Rd1(sigma_a_1, sigma_prime_s_1, eta_1, thickness_epi);
-    MultipoleDR Rd2(sigma_a_2, sigma_prime_s_2, eta_2, thickness_derm);
+    DiffusionReflectance Rd2(sigma_a_2, sigma_prime_s_2, eta_2, thickness_derm);
 
     vector<Spectrum> R1, R2, T1, T2;
     for (int i = 0; i < D12_SIZE; i++) {
@@ -384,15 +387,18 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
 
     //printf("R1 size: %d   T1R2T1 size: %d   R2R1 size: %d \n", R1.size(), T1R2T1.size(), R2R1.size());
     for (int i = 0; i < D12_SIZE; i++) {
-        R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
-        R12[i].Print();
+        Spectrum temp = (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i]));
+        R12.push_back(R1[i] + temp);
+        R12[i] = R12[i].Clamp(0, 1);
+        //temp.Print();
+        //R12[i].Print();
         //R12.push_back(R1[i]);
     }
-    /*printf("R1\n");
+    printf("R1\n");
     for (int i = 0; i < D12_SIZE; i++) {
         R1[i].Print();
     }
-    printf("R2\n");
+    /*printf("R2\n");
     for (int i = 0; i < D12_SIZE; i++) {
         R2[i].Print();
     }
@@ -400,9 +406,9 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     for (int i = 0; i < D12_SIZE; i++) {
         R2R1[i].Print();
     }
-    printf("T2\n");
+    printf("T1R2T1\n");
     for (int i = 0; i < D12_SIZE; i++) {
-        T2[i].Print();
+        T1R2T1[i].Print();
     }*/
     //exit(-1);
 }
@@ -437,12 +443,13 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             FresnelDielectric fresnel(1.f, bssrdf->eta());
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
             float Fdt = 1.f - Fdr(bssrdf->eta());
-            //if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
+            if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
             //    L += Spectrum(0.f);
-            //} else {
+                //exit(-1);
+            } else {
                 L += (INV_PI * Ft) * (Fdt * Mo);                
-            //}
-
+            }
+            //exit(-1);
             PBRT_SUBSURFACE_FINISHED_OCTREE_LOOKUP();
         }
     }
@@ -495,6 +502,16 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
             }
             //printf("dist: %f  index: %d\n", dist, index);
             Mo += /*Rd(DistanceSquared(pt, ips[i]->p))*/R12[index] * ips[i]->E * ips[i]->area; // TODO: Modify as lookup
+            /*if (index < 100) {
+                printf("ind %d    dist %f    area %f    E ", index, dist, ips[i]->area);
+                ips[i]->E.Print();
+                printf("R12: ");
+                R12[index].Print();
+                printf("Mo ");
+                Spectrum temp = (R12[index] * ips[i]->E * ips[i]->area);
+                temp.Print();
+                //exit(-1);
+            }*/
         }
     }
     else {
