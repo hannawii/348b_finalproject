@@ -217,7 +217,7 @@ Spectrum Microfacet::f(const Vector &wo, const Vector &wi) const {
     wh = Normalize(wh);
     float cosThetaH = Dot(wi, wh);
     Spectrum F = fresnel->Evaluate(cosThetaH);
-    return R * distribution->D(wh) * G(wo, wi, wh) * F /
+    return (0.5) * R * distribution->D(wh) * G(wo, wi, wh) * F /
                (4.f * cosThetaI * cosThetaO);
 }
 
@@ -237,7 +237,7 @@ Spectrum FresnelBlend::f(const Vector &wo, const Vector &wi) const {
     Vector wh = wi + wo;
     if (wh.x == 0. && wh.y == 0. && wh.z == 0.) return Spectrum(0.f);
     wh = Normalize(wh);
-    Spectrum specular = distribution->D(wh) /
+    Spectrum specular = (distribution->D(wh)/* * G(wo, wi, wh)*/) /
         (4.f * AbsDot(wi, wh) * max(AbsCosTheta(wi), AbsCosTheta(wo))) *
         SchlickFresnel(Dot(wi, wh));
     return diffuse + specular;
@@ -440,6 +440,40 @@ float Anisotropic::Pdf(const Vector &wo, const Vector &wi) const {
         anisotropic_pdf = d / (4.f * Dot(wo, wh));
     }
     return anisotropic_pdf;
+}
+
+void Beckmann::Sample_f(const Vector &wo, Vector *wi, float u1, float u2,
+                     float *pdf) const {
+    // // Compute sampled half-angle vector $\wh$ for Blinn distribution
+    // float costheta = powf(u1, 1.f / (exponent+1));
+    // float sintheta = sqrtf(max(0.f, 1.f - costheta*costheta));
+    // float phi = u2 * 2.f * M_PI;
+    // Vector wh = SphericalDirection(sintheta, costheta, phi);
+    // if (!SameHemisphere(wo, wh)) wh = -wh;
+
+    // // Compute incident direction by reflecting about $\wh$
+    // *wi = -wo + 2.f * Dot(wo, wh) * wh;
+
+    // // Compute PDF for $\wi$ from Blinn distribution
+    // float blinn_pdf = ((exponent + 1.f) * powf(costheta, exponent)) /
+    //                   (2.f * M_PI * 4.f * Dot(wo, wh));
+    // if (Dot(wo, wh) <= 0.f) blinn_pdf = 0.f;
+    // *pdf = blinn_pdf;
+
+    //TODO
+}
+
+
+float Beckmann::Pdf(const Vector &wo, const Vector &wi) const {
+    // Vector wh = Normalize(wo + wi);
+    // float costheta = AbsCosTheta(wh);
+    // // Compute PDF for $\wi$ from Blinn distribution
+    // float blinn_pdf = ((exponent + 1.f) * powf(costheta, exponent)) /
+    //                   (2.f * M_PI * 4.f * Dot(wo, wh));
+    // if (Dot(wo, wh) <= 0.f) blinn_pdf = 0.f;
+    // return blinn_pdf;
+
+    //TODO
 }
 
 

@@ -30,7 +30,7 @@ sigma_epi = melanin_frac * (melanin_blend * sigma_em + (1 - melanin_blend) * sig
 
 sigma_derm = hemoglobin_frac * (gamma * sigma_oxy + (1 - gamma) * sigma_deoxy) + (1 - hemoglobin_frac) * sigma_base
 
-sigma_prime_s_epi = 14.74 * math.pow(wavelength, -0.22) + 2.2 * math.pow(10, 11) * math.pow(wavelength, -4)
+sigma_prime_s_epi = 14.74 * math.pow(wavelength, -0.22) + (2.2 * math.pow(10, 11) * math.pow(wavelength, -4))
 sigma_prime_s_derm = sigma_prime_s_epi * 0.5
 
 print "sigma_a_epi", sigma_epi, "\nsigma_a_derm", sigma_derm, "\nsigma_prime_s_epi", sigma_prime_s_epi, "\nsigma_prime_s_derm", sigma_prime_s_derm

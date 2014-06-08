@@ -457,6 +457,27 @@ private:
     float ex, ey;
 };
 
+class Beckmann : public MicrofacetDistribution {
+public: 
+
+    Beckmann(float e) { if (e > 10000.f || isnan(e)) e = 10000.f;
+                     roughness = e; }
+
+    float D(const Vector &wh) const {
+        //normalize???
+        float costhetah = AbsCosTheta(wh);
+        float tanthetah = sqrtf(powf((1 / costhetah), 2) - 1);
+
+        return (exp(powf((-tanthetah / roughness), 2))) / (powf(roughness, 2) * powf(costhetah, 4));
+    }
+
+    virtual void Sample_f(const Vector &wi, Vector *sampled_f, float u1, float u2, float *pdf) const;
+    virtual float Pdf(const Vector &wi, const Vector &wo) const;
+
+private:
+    float roughness;
+};
+
 
 class FresnelBlend : public BxDF {
 public:
@@ -465,6 +486,14 @@ public:
                  const Spectrum &Rs,
                  MicrofacetDistribution *dist);
     Spectrum f(const Vector &wo, const Vector &wi) const;
+    float G(const Vector &wo, const Vector &wi, const Vector &wh) const {
+        float NdotWh = AbsCosTheta(wh);
+        float NdotWo = AbsCosTheta(wo);
+        float NdotWi = AbsCosTheta(wi);
+        float WOdotWh = AbsDot(wo, wh);
+        return min(1.f, min((2.f * NdotWh * NdotWo / WOdotWh),
+                            (2.f * NdotWh * NdotWi / WOdotWh)));
+    }
     Spectrum SchlickFresnel(float costheta) const {
         return Rs + powf(1 - costheta, 5.f) * (Spectrum(1.) - Rs);
     }
