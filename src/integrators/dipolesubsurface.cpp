@@ -44,10 +44,10 @@
 #include "camera.h"
 #include "floatfile.h"
 
-#define NUM_DIPOLE 5 //should be odd!
-#define MAX_RADIUS 40.0f
-#define D12_SIZE 400
-#define RADIUS_PREC 0.1f
+#define NUM_DIPOLE 21 //should be odd!
+#define MAX_RADIUS 20.0f
+#define D12_SIZE 2000
+#define RADIUS_PREC 0.01f
 #define THICKNESS 0.25
 struct DiffusionReflectance;
 struct MultipoleDR;
@@ -151,7 +151,7 @@ struct SubsurfaceOctreeNode {
 struct DiffusionReflectance {
     // DiffusionReflectance Public Methods
     DiffusionReflectance(const Spectrum &sigma_a, const Spectrum &sigmap_s,
-                         float eta) {
+                         float eta, float thickness) {
         A = (1.f + Fdr(eta)) / (1.f - Fdr(eta));
         sigmap_t = sigma_a + sigmap_s;
         sigma_tr = Sqrt(3.f * sigma_a * sigmap_t);
@@ -159,15 +159,16 @@ struct DiffusionReflectance {
         zpos = Spectrum(1.f) / sigmap_t;
         zneg = -zpos * (1.f + (4.f/3.f) * A);
     }
-    Spectrum operator()(float d2) const {
+    void operator()(float d2, vector<Spectrum> &Rd, vector<Spectrum>& Td) const {
         Spectrum dpos = Sqrt(Spectrum(d2) + zpos * zpos);
         Spectrum dneg = Sqrt(Spectrum(d2) + zneg * zneg);
-        Spectrum Rd = (alphap / (4.f * M_PI)) *
+        Spectrum R = (alphap / (4.f * M_PI)) *
             ((zpos * (dpos * sigma_tr + Spectrum(1.f)) *
               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
              (zneg * (dneg * sigma_tr + Spectrum(1.f)) *
               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
-        return Rd.Clamp();
+        Rd.push_back(R.Clamp());
+        Td.push_back(R.Clamp());
     }
 
     // DiffusionReflectance Data
@@ -185,7 +186,7 @@ struct MultipoleDR {
 
         
         Spectrum lfree = Spectrum(1.f) / sigmap_t;
-        depth = lfree;//Spectrum(thickness);
+        depth = Spectrum(thickness);//lfree
 
         Spectrum zb = (2.f/3.f) * A * lfree;
         int shift = (NUM_DIPOLE/2);
@@ -243,6 +244,7 @@ struct MultipoleDR {
 
 // performs convolution
 void convolve(vector<Spectrum> &s1, vector<Spectrum> &s2, vector<Spectrum> &result) {
+    //int divide = s1.size()*s2.size();
     int size = s1.size() + s2.size() - 1;
     for (int i = 0; i < size; i++) {
         int i1 = i;
@@ -253,6 +255,7 @@ void convolve(vector<Spectrum> &s1, vector<Spectrum> &s2, vector<Spectrum> &resu
             }
             i1--;
         }
+        result[i] *= (RADIUS_PREC * RADIUS_PREC);
     }
 }
 
@@ -372,11 +375,36 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     convolve(R2, R1, R2R1);
     assert(R2R1.size() == R2.size() + R1.size() - 1);
 
+    vector<Spectrum> T1R2T1R2R1, T1R2T1R2R1R2R1;
+
+    convolve(T1R2T1, R2R1, T1R2T1R2R1);
+    assert(T1R2T1R2R1.size() == R2R1.size() + T1R2T1.size() -1);
+    convolve(T1R2T1R2R1, R2R1, T1R2T1R2R1R2R1);
+    assert(T1R2T1R2R1R2R1.size() == R2R1.size() + T1R2T1R2R1.size() -1 );
+
     //printf("R1 size: %d   T1R2T1 size: %d   R2R1 size: %d \n", R1.size(), T1R2T1.size(), R2R1.size());
     for (int i = 0; i < D12_SIZE; i++) {
         R12.push_back(R1[i] + (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i])));
+        R12[i].Print();
         //R12.push_back(R1[i]);
     }
+    /*printf("R1\n");
+    for (int i = 0; i < D12_SIZE; i++) {
+        R1[i].Print();
+    }
+    printf("R2\n");
+    for (int i = 0; i < D12_SIZE; i++) {
+        R2[i].Print();
+    }
+    printf("R2R1\n");
+    for (int i = 0; i < D12_SIZE; i++) {
+        R2R1[i].Print();
+    }
+    printf("T2\n");
+    for (int i = 0; i < D12_SIZE; i++) {
+        T2[i].Print();
+    }*/
+    //exit(-1);
 }
 
 
@@ -409,7 +437,13 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             FresnelDielectric fresnel(1.f, bssrdf->eta());
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
             float Fdt = 1.f - Fdr(bssrdf->eta());
+
             L += (INV_PI * bsdf->rho(wo, rng, BSDF_GLOSSY)) * (bsdf->rho(rng, BSDF_GLOSSY) * Mo);
+            //if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
+            //    L += Spectrum(0.f);
+            //} else {
+                // L += (INV_PI * Ft) * (Fdt * Mo);                
+            //}
             PBRT_SUBSURFACE_FINISHED_OCTREE_LOOKUP();
         }
     }
@@ -438,7 +472,7 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
         if (dist >= MAX_RADIUS) {
             index = D12_SIZE - 1;
         } else {
-            index = int(dist*10);
+            index = int(dist*100);
             if (index >= D12_SIZE) index = D12_SIZE-1;
         }
         //printf("dist: %f  index: %d\n", dist, index);
@@ -457,7 +491,7 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
             if (dist >= MAX_RADIUS) {
                 index = D12_SIZE - 1;
             } else {
-                index = int(dist*10);
+                index = int(dist*100);
                 if (index >= D12_SIZE) index = D12_SIZE-1;
             }
             //printf("dist: %f  index: %d\n", dist, index);

@@ -6,8 +6,8 @@ Film "image" "string filename" ["head2.exr"]  "integer xresolution" [512] "integ
 SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.7]
    "float maxerror" [.05]
    "string pointsfile" "head_points_scaledp7.out"
-    "color sigma_a_1" [1.20922175534 2.88512662763 3.74634628239] 
-    "color sigma_a_2" [0.0413620418103 0.18815947716 0.190584239897] 
+    "color sigma_a_1" [14.1892306449 31.8229766428 40.3288472169] 
+    "color sigma_a_2" [0.0901958987068 0.685607579093 0.587934371618] 
     "color sigma_prime_s_1" [4.77777886007 6.99159525976 8.12024816794] 
     "color sigma_prime_s_2" [2.38888943003 3.49579762988 4.06012408397] 
     "float eta_1" [1.4] 
