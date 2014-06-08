@@ -31,19 +31,19 @@ BSDF *SkinMaterial::GetBSDF(const DifferentialGeometry &dgGeom, const Differenti
     // }
 
     Spectrum kd = Kd->Evaluate(dgs).Clamp();
-    if (!kd.IsBlack()) {
-        BxDF *diff = BSDF_ALLOC(arena, Lambertian)(kd);
-        bsdf->Add(diff);
-    }
+    // if (!kd.IsBlack()) {
+    //     BxDF *diff = BSDF_ALLOC(arena, Lambertian)(kd);
+    //     bsdf->Add(diff);
+    // }
 
     float e = eta->Evaluate(dgs);
     Spectrum ks = Ks->Evaluate(dgs).Clamp();
     if (!ks.IsBlack()) {
         Fresnel *fresnel = BSDF_ALLOC(arena, FresnelDielectric)(e, 1.f);
         float rough = roughness->Evaluate(dgs);
-        // bsdf->Add(BSDF_ALLOC(arena, FresnelBlend)(kd, ks, BSDF_ALLOC(arena, Blinn)(4.f)));
-        BxDF *spec = BSDF_ALLOC(arena, Microfacet)(ks, fresnel, BSDF_ALLOC(arena, Blinn)(1.f / rough));
-        bsdf->Add(spec);
+        bsdf->Add(BSDF_ALLOC(arena, FresnelBlend)(kd, ks, BSDF_ALLOC(arena, Blinn)(4.f)));
+        // BxDF *spec = BSDF_ALLOC(arena, Microfacet)(ks, fresnel, BSDF_ALLOC(arena, Blinn)(1.f / rough));
+        // bsdf->Add(spec);
     }
 
     // Spectrum kr = op * Kr->Evaluate(dgs).Clamp();
