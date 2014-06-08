@@ -443,13 +443,13 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             FresnelDielectric fresnel(1.f, bssrdf->eta());
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
             float Fdt = 1.f - Fdr(bssrdf->eta());
-            if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
+
+            L += (INV_PI * bsdf->rho(wo, rng, BSDF_GLOSSY)) * (bsdf->rho(rng, BSDF_GLOSSY) * Mo);
+            //if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
             //    L += Spectrum(0.f);
-                //exit(-1);
-            } else {
-                L += (INV_PI * Ft) * (Fdt * Mo);                
-            }
-            //exit(-1);
+            //} else {
+                // L += (INV_PI * Ft) * (Fdt * Mo);                
+            //}
             PBRT_SUBSURFACE_FINISHED_OCTREE_LOOKUP();
         }
     }
