@@ -1,6 +1,21 @@
 # Converted from "../scenes/project/head.OBJ" by obj2pbrt
 # Scene bounds: (-0.221155, -0.305050, -0.221103) - (0.232135, 0.116040, 0.053476)
 
+<<<<<<< HEAD
+Film "image" "string filename" ["head_calc_sigma.exr"]  "integer xresolution" [1024] "integer yresolution" [1024] "float scale" [10]
+
+SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.7]
+   "float maxerror" [.05]
+   "string pointsfile" "head_points_scaledp7.out"
+    "color sigma_a_1" [0.265167213138 0.628063286868 0.822266622051] #[14.1892306449 31.8229766428 40.3288472169]#[1.20922175534 2.88512662763 3.74634628239] #
+    "color sigma_a_2" [0.0901958987068 0.685607579093 0.587934371618] #[0.0901958987068 0.685607579093 0.587934371618] #[0.0413620418103 0.18815947716 0.190584239897] #
+    "color sigma_prime_s_1" [4.77777886007 6.99159525976 8.12024816794] 
+    "color sigma_prime_s_2" [2.38888943003 3.49579762988 4.06012408397] 
+    "float eta_1" [1.4] 
+    "float eta_2" [1.0] 
+    "float thickness_epi" [0.25] 
+    "float thickness_derm" [20.0]
+=======
 Film "image" "string filename" ["head_default.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
 
 #SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.7]
@@ -14,8 +29,9 @@ Film "image" "string filename" ["head_default.exr"]  "integer xresolution" [512]
     #"float eta_2" [1.0] 
     #"float thickness_epi" [0.25] 
     #"float thickness_derm" [20.0]
+>>>>>>> 09f191c435dc722aefd7a50343ea4bf6a1ad1794
 
-Sampler "lowdiscrepancy" "integer pixelsamples" [8]
+Sampler "lowdiscrepancy" "integer pixelsamples" [16]
 Accelerator "kdtree"
 
 #
@@ -31,7 +47,7 @@ Camera "perspective" "float fov" [2]
 # Name "Group19"
 WorldBegin
 AttributeBegin
-   AreaLightSource "area" "color L" [10 10 10] "integer nsamples" [8]
+   AreaLightSource "area" "color L" [10 10 10] "integer nsamples" [16]
    #Translate .05 .5 .2
    Translate 50 500 200
    Rotate 45 0 1 0
