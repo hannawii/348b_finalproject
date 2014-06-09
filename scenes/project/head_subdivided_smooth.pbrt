@@ -5,7 +5,7 @@ Film "image" "string filename" ["head_subdivided_smooth.exr"]  "integer xresolut
 
 SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [2]
    "float maxerror" [.05]
-   #"string pointsfile" "head_points_scaledp7.out"
+   "string pointsfile" "head_subdivided_points_1p5.out"
     "color sigma_a_1" [0.265167213138 0.628063286868 0.822266622051]
     "color sigma_a_2" [0.0901958987068 0.685607579093 0.587934371618]
     "color sigma_prime_s_1" [4.77777886007 6.99159525976 8.12024816794] 

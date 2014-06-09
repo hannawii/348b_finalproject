@@ -186,7 +186,7 @@ struct MultipoleDR {
 
         
         Spectrum lfree = Spectrum(1.f) / sigmap_t;
-        depth = Spectrum(thickness);//lfree
+        depth = Spectrum(thickness);
 
         Spectrum zb = (2.f/3.f) * A * lfree;
         int shift = (NUM_DIPOLE/2);
@@ -224,21 +224,6 @@ struct MultipoleDR {
         Td.push_back(T.Clamp());
     }
 
-    // Spectrum operator()(float d2) const {
-    //     Spectrum Rd = Spectrum(0.f);
-    //     for (int i = 0; i < NUM_DIPOLE; i++) {
-    //         Spectrum dpos = Sqrt(Spectrum(d2) + zpos[i] * zpos[i]);
-    //         Spectrum dneg = Sqrt(Spectrum(d2) + zneg[i] * zneg[i]);
-    //         Spectrum temp = (alphap / (4.f * M_PI)) *
-    //             ((zpos[i] * (dpos * sigma_tr + Spectrum(1.f)) *
-    //               Exp(-sigma_tr * dpos)) / (dpos * dpos * dpos) -
-    //              (zneg[i] * (dneg * sigma_tr + Spectrum(1.f)) *
-    //               Exp(-sigma_tr * dneg)) / (dneg * dneg * dneg));
-    //         Rd += temp;
-    //     }
-    //     return Rd.Clamp();
-    // }
-
     // Multipole DiffusionReflectance Data
     Spectrum zpos[NUM_DIPOLE], zneg[NUM_DIPOLE], sigmap_t, sigma_tr, alphap, depth;
     float A;
@@ -247,7 +232,6 @@ struct MultipoleDR {
 
 // performs convolution
 void convolve(vector<Spectrum> &s1, vector<Spectrum> &s2, vector<Spectrum> &result) {
-    //int divide = s1.size()*s2.size();
     int size = s1.size() + s2.size() - 1;
     for (int i = 0; i < size; i++) {
         int i1 = i;
@@ -378,18 +362,10 @@ void DipoleSubsurfaceIntegrator::Preprocess(const Scene *scene,
     convolve(R2, R1, R2R1);
     assert(R2R1.size() == R2.size() + R1.size() - 1);
 
-    vector<Spectrum> T1R2T1R2R1, T1R2T1R2R1R2R1;
-
-    convolve(T1R2T1, R2R1, T1R2T1R2R1);
-    assert(T1R2T1R2R1.size() == R2R1.size() + T1R2T1.size() -1);
-    convolve(T1R2T1R2R1, R2R1, T1R2T1R2R1R2R1);
-    assert(T1R2T1R2R1R2R1.size() == R2R1.size() + T1R2T1R2R1.size() -1 );
-
     //printf("R1 size: %d   T1R2T1 size: %d   R2R1 size: %d \n", R1.size(), T1R2T1.size(), R2R1.size());
     for (int i = 0; i < D12_SIZE; i++) {
         Spectrum temp = (T1R2T1[i]/(Spectrum(1.0f) - R2R1[i]));
         R12.push_back(R1[i] + temp);
-        R12[i] = R12[i].Clamp(0, 1);
         //temp.Print();
         //R12[i].Print();
         //R12.push_back(R1[i]);
@@ -435,21 +411,32 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
         if (!sigmap_t.IsBlack()) {
             // Use hierarchical integration to evaluate reflection from dipole model
             PBRT_SUBSURFACE_STARTED_OCTREE_LOOKUP(const_cast<Point *>(&p));
-            //DiffusionReflectance Rd(sigma_a, sigmap_s, bssrdf->eta());
-            //MultipoleDR Rd(sigma_a, sigmap_s, bssrdf->eta(), THICKNESS); // TODO: not needed
-
             Spectrum Mo = octree->Mo(octreeBounds, p, maxError, R12);
+            if ((Mo.X() <= -74.468018 && Mo.X() >= -74.468019) || (Mo.Y() <= -170.014221 && Mo.Y() >= -170.014222) || (Mo.Z() <= -109.617188 && Mo.Z() >= -109.617189)) {
+                printf("x: %f, y: %f, z: %f\n", p.x, p.y, p.z);
+                Mo.Print();
+            }
             //Mo.Print();
             FresnelDielectric fresnel(1.f, bssrdf->eta());
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
-            float Fdt = 1.f - Fdr(bssrdf->eta());
+            //float Fdt = 1.f - Fdr(bssrdf->eta());
+            //L += (INV_PI * Ft) * (Fdt * Mo);
+            /*printf("done\n");
+            if (Mo.X() > 10 || Mo.Y() > 10 || Mo.Z() > 10) {
+                Mo.Print();
+                exit(-1);
+            }*/
 
-            L += (INV_PI * bsdf->rho(wo, rng, BSDF_GLOSSY)) * (bsdf->rho(rng, BSDF_GLOSSY) * Mo);
-            //if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
-            //    L += Spectrum(0.f);
-            //} else {
-                // L += (INV_PI * Ft) * (Fdt * Mo);                
-            //}
+            Spectrum temp = (INV_PI * bsdf->rho(wo, rng, BSDF_GLOSSY)) * (bsdf->rho(rng, BSDF_GLOSSY) * Mo);
+            //temp.Print();
+
+            /*if (temp != Spectrum(0.f)) {
+                temp.Print();
+                Mo.Print();
+                bsdf->rho(wo, rng, BSDF_GLOSSY).Print();
+            }*/
+            L += temp;
+
             PBRT_SUBSURFACE_FINISHED_OCTREE_LOOKUP();
         }
     }
@@ -481,8 +468,7 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
             index = int(dist*100);
             if (index >= D12_SIZE) index = D12_SIZE-1;
         }
-        //printf("dist: %f  index: %d\n", dist, index);
-        return /*Rd(DistanceSquared(pt, p))*/R12[index] * E * sumArea; // TODO: Modify as lookup
+        return R12[index] * E * sumArea;
     }
 
     // Otherwise compute $M_\roman{o}$ from points in leaf or recursively visit children
@@ -500,17 +486,21 @@ Spectrum SubsurfaceOctreeNode::Mo(const BBox &nodeBound, const Point &pt, const 
                 index = int(dist*100);
                 if (index >= D12_SIZE) index = D12_SIZE-1;
             }
-            //printf("dist: %f  index: %d\n", dist, index);
-            Mo += /*Rd(DistanceSquared(pt, ips[i]->p))*/R12[index] * ips[i]->E * ips[i]->area; // TODO: Modify as lookup
-            /*if (index < 100) {
-                printf("ind %d    dist %f    area %f    E ", index, dist, ips[i]->area);
-                ips[i]->E.Print();
+            Spectrum temp = R12[index] * ips[i]->E * ips[i]->area;
+            Mo += temp;
+            //printf("dist: %f, index: %d", dist, index);
+            //temp.Print();
+            /*if (temp.X() > 10 || temp.Y() > 10 || temp.Z() > 10) {
                 printf("R12: ");
                 R12[index].Print();
-                printf("Mo ");
-                Spectrum temp = (R12[index] * ips[i]->E * ips[i]->area);
-                temp.Print();
-                //exit(-1);
+                printf("E: ");
+                Spectrum E = ips[i]->E;
+                E.Print();
+                printf("Area: %f\n", ips[i]->area);
+            } else {
+                Spectrum E = ips[i]->E;
+                printf("E: ");
+                E.Print();
             }*/
         }
     }
