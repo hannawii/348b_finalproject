@@ -41,7 +41,7 @@ BSDF *SkinMaterial::GetBSDF(const DifferentialGeometry &dgGeom, const Differenti
     if (!ks.IsBlack()) {
         Fresnel *fresnel = BSDF_ALLOC(arena, FresnelDielectric)(e, 1.f);
         float rough = roughness->Evaluate(dgs);
-        bsdf->Add(BSDF_ALLOC(arena, FresnelBlend)(kd, ks, BSDF_ALLOC(arena, Blinn)(4.f)));
+        bsdf->Add(BSDF_ALLOC(arena, FresnelBlend)(kd, ks, BSDF_ALLOC(arena, Blinn)(8.f)));
         // BxDF *spec = BSDF_ALLOC(arena, Microfacet)(ks, fresnel, BSDF_ALLOC(arena, Blinn)(1.f / rough));
         // bsdf->Add(spec);
     }

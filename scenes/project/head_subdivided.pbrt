@@ -3,7 +3,7 @@
 
 Film "image" "string filename" ["head_subdivided.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
 
-SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [2]
+SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [.7]
    "float maxerror" [.05]
    #"string pointsfile" "head_points_scaledp7.out"
     "color sigma_a_1" [0.265167213138 0.628063286868 0.822266622051]

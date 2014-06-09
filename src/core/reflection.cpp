@@ -217,7 +217,7 @@ Spectrum Microfacet::f(const Vector &wo, const Vector &wi) const {
     wh = Normalize(wh);
     float cosThetaH = Dot(wi, wh);
     Spectrum F = fresnel->Evaluate(cosThetaH);
-    return (0.5) * R * distribution->D(wh) * G(wo, wi, wh) * F /
+    return R * distribution->D(wh) * G(wo, wi, wh) * F /
                (4.f * cosThetaI * cosThetaO);
 }
 
@@ -237,10 +237,10 @@ Spectrum FresnelBlend::f(const Vector &wo, const Vector &wi) const {
     Vector wh = wi + wo;
     if (wh.x == 0. && wh.y == 0. && wh.z == 0.) return Spectrum(0.f);
     wh = Normalize(wh);
-    Spectrum specular = (distribution->D(wh)/* * G(wo, wi, wh)*/) /
+    Spectrum specular = (distribution->D(wh) * G(wo, wi, wh)) /
         (4.f * AbsDot(wi, wh) * max(AbsCosTheta(wi), AbsCosTheta(wo))) *
         SchlickFresnel(Dot(wi, wh));
-    return diffuse + specular;
+    return 0.5 * (diffuse + specular);
 }
 
 
@@ -488,7 +488,9 @@ Spectrum FresnelBlend::Sample_f(const Vector &wo, Vector *wi,
     else {
         u1 = 2.f * (u1 - .5f);
         distribution->Sample_f(wo, wi, u1, u2, pdf);
-        if (!SameHemisphere(wo, *wi)) return Spectrum(0.f);
+        if (!SameHemisphere(wo, *wi)) {
+            return Spectrum(0.f);
+        }
     }
     *pdf = Pdf(wo, *wi);
     return f(wo, *wi);
@@ -496,7 +498,12 @@ Spectrum FresnelBlend::Sample_f(const Vector &wo, Vector *wi,
 
 
 float FresnelBlend::Pdf(const Vector &wo, const Vector &wi) const {
-    if (!SameHemisphere(wo, wi)) return 0.f;
+    if (!SameHemisphere(wo, wi)) {
+        // printf("0.00\n");
+        return 0.f;
+    }
+    // float f = .5f * (AbsCosTheta(wi) * INV_PI + distribution->Pdf(wo, wi));
+    // printf("%f\n", f);
     return .5f * (AbsCosTheta(wi) * INV_PI + distribution->Pdf(wo, wi));
 }
 
@@ -525,8 +532,11 @@ Spectrum BxDF::rho(int nSamples, const float *samples1,
         float pdf_o = INV_TWOPI, pdf_i = 0.f;
         Spectrum f = Sample_f(wo, &wi, samples2[2*i], samples2[2*i+1], &pdf_i);
         if (pdf_i > 0.)
+            // printf("here");
             r += f * AbsCosTheta(wi) * AbsCosTheta(wo) / (pdf_o * pdf_i);
     }
+    // Spectrum temp = r / (M_PI*nSamples);
+    // r.Print();
     return r / (M_PI*nSamples);
 }
 
@@ -669,8 +679,9 @@ Spectrum BSDF::rho(RNG &rng, BxDFType flags, int sqrtSamples) const {
 
     Spectrum ret(0.);
     for (int i = 0; i < nBxDFs; ++i)
-        if (bxdfs[i]->MatchesFlags(flags))
+        if (bxdfs[i]->MatchesFlags(flags)) {
             ret += bxdfs[i]->rho(nSamples, s1, s2);
+        }
     return ret;
 }
 
@@ -684,6 +695,9 @@ Spectrum BSDF::rho(const Vector &wo, RNG &rng, BxDFType flags,
     for (int i = 0; i < nBxDFs; ++i)
         if (bxdfs[i]->MatchesFlags(flags))
             ret += bxdfs[i]->rho(wo, nSamples, s1);
+
+    // printf("rho : ");
+    // ret.Print();
     return ret;
 }
 
