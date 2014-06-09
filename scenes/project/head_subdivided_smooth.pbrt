@@ -1,11 +1,11 @@
 # Converted from "../scenes/project/head_subdivided_smooth.obj" by obj2pbrt
 # Scene bounds: (-0.221155, -0.305050, -0.221150) - (0.232135, 0.116414, 0.053476)
 
-Film "image" "string filename" ["head_subdivided_smooth.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
+Film "image" "string filename" ["head_subdivided_smooth_frontalview_hd.exr"]  "integer xresolution" [1080] "integer yresolution" [1080] "float scale" [10]
 
-SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [2]
+SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [1.5]
    "float maxerror" [.05]
-   #"string pointsfile" "head_points_scaledp7.out"
+   "string pointsfile" "head_subdivided_points_1p5.out"
     "color sigma_a_1" [0.265167213138 0.628063286868 0.822266622051]
     "color sigma_a_2" [0.0901958987068 0.685607579093 0.587934371618]
     "color sigma_prime_s_1" [4.77777886007 6.99159525976 8.12024816794] 
@@ -15,7 +15,7 @@ SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [2]
     "float thickness_epi" [0.25] 
     "float thickness_derm" [20.0]
 
-Sampler "lowdiscrepancy" "integer pixelsamples" [8]
+Sampler "lowdiscrepancy" "integer pixelsamples" [128]
 Accelerator "kdtree"
 
 #
@@ -25,7 +25,7 @@ Accelerator "kdtree"
 #LookAt 20 20 20  0 0 0   0 1 0
 
 #LookAt 3 -.05 8  0 -.02 -0.08  0 2 0 #3000 -50 8000  0 -20 -80  0 2000 0 
-LookAt 3000 -50 8000  0 -20 -80  0 2000 0
+LookAt 250 1500 9000  0 -10 50  0 10 0
 Camera "perspective" "float fov" [2]
 
 # Name "Group19"
@@ -42,11 +42,11 @@ AttributeEnd
 
 # Name "Group19.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -23727,11 +23727,11 @@ AttributeEnd
 
 # Name "Group28.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -24384,11 +24384,11 @@ AttributeEnd
 
 # Name "Group2.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -47555,11 +47555,11 @@ AttributeEnd
 
 # Name "Group24.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -48926,11 +48926,11 @@ AttributeEnd
 
 # Name "Group12.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -50281,11 +50281,11 @@ AttributeEnd
 
 # Name "Group26.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -50938,11 +50938,11 @@ AttributeEnd
 
 # Name "Group14.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -58679,11 +58679,11 @@ AttributeEnd
 
 # Name "Group7.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -60322,11 +60322,11 @@ AttributeEnd
 
 # Name "Group4.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -61449,11 +61449,11 @@ AttributeEnd
 
 # Name "Group5.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -69472,11 +69472,11 @@ AttributeEnd
 
 # Name "Group33.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -76317,11 +76317,11 @@ AttributeEnd
 
 # Name "Group35.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"
@@ -77036,11 +77036,11 @@ AttributeEnd
 
 # Name "Group39.001"
 AttributeBegin
-Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.7]
-Texture "obj-ks" "color" "constant" "color value" [0.000050 0.000050 0.000050]
+Texture "obj-kd" "color" "imagemap" "string filename" ["lambertian.tga"] "float gamma" [4.0]
+Texture "obj-ks" "color" "constant" "color value" [0.000100 0.000100 0.000100]
 Texture "obj-bump-map" "float" "imagemap" "string filename" ["bump-lowRes.tga"]
 Texture "obj-bump" "float" "scale" "float tex1" [10.00000] "texture tex2" "obj-bump-map"
-Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.510000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
+Material "skin" "texture Kd" "obj-kd" "texture Ks" "obj-ks" "float roughness" [0.300000] "rgb Kt" [0.000000 0.000000 0.000000] "float index" [1.000000] "rgb opacity" [1.000000 1.000000 1.000000] "texture bumpmap" "obj-bump" 
 
 Scale 1000 1000 1000
 Shape "trianglemesh"

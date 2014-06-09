@@ -422,6 +422,7 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
     const Normal &n = bsdf->dgShading.nn;
     // Evaluate BSSRDF and possibly compute subsurface scattering
     BSSRDF *bssrdf = isect.GetBSSRDF(ray, arena);
+    Spectrum temp = Spectrum(0.f);
     if (bssrdf && octree) {
         Spectrum sigma_a  = bssrdf->sigma_a();
         Spectrum sigmap_s = bssrdf->sigma_prime_s();
@@ -438,7 +439,11 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
             Spectrum Ft = Spectrum(1.f) - fresnel.Evaluate(AbsDot(wo, n));
             float Fdt = 1.f - Fdr(bssrdf->eta());
 
-            L += (INV_PI * bsdf->rho(wo, rng, BSDF_GLOSSY)) * (bsdf->rho(rng, BSDF_GLOSSY) * Mo);
+            temp = (INV_PI * bsdf->rho(wo, rng, BSDF_ALL)) * (bsdf->rho(rng, BSDF_ALL) * Mo);
+            // temp.Print();    
+            //printf("Mo : ");
+            //Mo.Print();
+            L += temp;//(INV_PI * bsdf->rho(wo, rng, BSDF_ALL)) * (bsdf->rho(rng, BSDF_ALL) * Mo);
             //if (Mo.X() > 1 || Mo.Y() > 1 || Mo.Z() > 1) {
             //    L += Spectrum(0.f);
             //} else {
@@ -457,6 +462,21 @@ Spectrum DipoleSubsurfaceIntegrator::Li(const Scene *scene, const Renderer *rend
         L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,
                               arena);
     }
+
+    Spectrum temp2 = (temp / L);
+    // printf("temp : ");
+    // temp.Print();
+    // printf("L : ");
+    // L.Print();
+
+    //printf("temp / L : ");
+    //temp2.Print();
+    // if (temp2.X() > 1.f) {
+    //     printf("temp : ");
+    //     temp.Print();
+    //     printf("L : ");
+    //     L.Print();
+    // }
     return L;
 }
 
