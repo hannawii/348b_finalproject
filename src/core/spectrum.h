@@ -416,7 +416,7 @@ public:
             printf("%f", c[i]);
             printf(", ");
         }
-        printf("]\n");
+        printf("] \n");
     }
     static RGBSpectrum FromRGB(const float rgb[3],
             SpectrumType type = SPECTRUM_REFLECTANCE) {

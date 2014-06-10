@@ -62,21 +62,25 @@ class DipoleSubsurfaceIntegrator : public SurfaceIntegrator {
 public:
     // DipoleSubsurfaceIntegrator Public Methods
     DipoleSubsurfaceIntegrator(int mdepth, float merror, float mindist, 
-                                float e1, float e2, float t_epi, float t_derm,
-                                Spectrum s_a1, Spectrum s_a2,
-                                Spectrum s_p1, Spectrum s_p2,
+                                float e1, float e2, float e3, float t_epi, float t_derm, float t_b_derm, 
+                                Spectrum s_a1, Spectrum s_a2, Spectrum s_a3, 
+                                Spectrum s_p1, Spectrum s_p2, Spectrum s_p3, 
                                 const string &fn) {
         maxSpecularDepth = mdepth;
         maxError = merror;
         minSampleDist = mindist;
         eta_1 = e1;
         eta_2 = e2;
+        eta_3 = e3;
         thickness_epi = t_epi;
         thickness_derm = t_derm;
+        thickness_b_derm = t_b_derm;
         sigma_a_1 = s_a1;
         sigma_a_2 = s_a2;
+        sigma_a_3 = s_a3;
         sigma_prime_s_1 = s_p1;
         sigma_prime_s_2 = s_p2;
+        sigma_prime_s_3 = s_p3;
         filename = fn;
         octree = NULL;
     }
@@ -89,15 +93,16 @@ public:
 
 private:
     // DipoleSubsurfaceIntegrator Private Data
-    vector<Spectrum> R12;
+    vector<Spectrum> R123;
     int maxSpecularDepth;
-    float maxError, minSampleDist, eta_1, eta_2, thickness_epi, thickness_derm;
-    Spectrum sigma_a_1, sigma_a_2, sigma_prime_s_1, sigma_prime_s_2;
+    float maxError, minSampleDist, eta_1, eta_2, eta_3, thickness_epi, thickness_derm, thickness_b_derm;
+    Spectrum sigma_a_1, sigma_a_2, sigma_a_3, sigma_prime_s_1, sigma_prime_s_2, sigma_prime_s_3;
     string filename;
     vector<IrradiancePoint> irradiancePoints;
     BBox octreeBounds;
     SubsurfaceOctreeNode *octree;
     MemoryArena octreeArena;
+    const Camera *camera_pr;
 
     // Declare sample parameters for light source sampling
     LightSampleOffsets *lightSampleOffsets;

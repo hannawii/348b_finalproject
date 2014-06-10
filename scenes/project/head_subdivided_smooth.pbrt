@@ -1,21 +1,25 @@
 # Converted from "../scenes/project/head_subdivided_smooth.obj" by obj2pbrt
 # Scene bounds: (-0.221155, -0.305050, -0.221150) - (0.232135, 0.116414, 0.053476)
 
-Film "image" "string filename" ["head_subdivided_smooth_frontalview_hd.exr"]  "integer xresolution" [1080] "integer yresolution" [1080] "float scale" [10]
+Film "image" "string filename" ["head_subdivided_smooth_frontalview.exr"]  "integer xresolution" [512] "integer yresolution" [512] "float scale" [10]
 
 SurfaceIntegrator "dipolesubsurface" "float minsampledistance" [1.5]
    "float maxerror" [.05]
    "string pointsfile" "head_subdivided_points_1p5.out"
-    "color sigma_a_1" [0.265167213138 0.628063286868 0.822266622051]
-    "color sigma_a_2" [0.0901958987068 0.685607579093 0.587934371618]
-    "color sigma_prime_s_1" [4.77777886007 6.99159525976 8.12024816794] 
-    "color sigma_prime_s_2" [2.38888943003 3.49579762988 4.06012408397] 
+    "color sigma_a_1" [2.1 2.1 5] #[8.525199817947652 19.119304966357014 24.233807012897877]
+    "color sigma_a_2" [0.16 0.19 0.30] #[0.15123821982750488 1.3074177065089658 1.0846220362699206]
+    "color sigma_a_3" [0.085 1.0 25.0]
+    "color sigma_prime_s_1" [48.0 60.0 65.0]#[4.77777886007 6.99159525976 8.12024816794] 
+    "color sigma_prime_s_2" [24.0 30.0 34.5]#[2.38888943003 3.49579762988 4.06012408397] 
+    "color sigma_prime_s_3" [0.9 0.94 0.96]
     "float eta_1" [1.4] 
     "float eta_2" [1.0] 
-    "float thickness_epi" [0.25] 
-    "float thickness_derm" [20.0]
+    "float eta_3" [1.0]
+    "float thickness_epi" [0.03]#[0.25] 
+    "float thickness_derm" [0.05]#[20]
+    "float thickness_b_derm" [30]
 
-Sampler "lowdiscrepancy" "integer pixelsamples" [128]
+Sampler "lowdiscrepancy" "integer pixelsamples" [8]
 Accelerator "kdtree"
 
 #
